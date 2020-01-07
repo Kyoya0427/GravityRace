@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>42607178-b53b-4860-b7de-0c33e843642f</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>7ab5b920-0159-42f9-80f9-9adc2652f5f3</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dds;dlg;fbx;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="GameState">
+      <UniqueIdentifier>{58068a7b-c188-421d-b610-612f42530181}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameState\Manager">
+      <UniqueIdentifier>{3af4ea8c-93e8-4bd6-ad6c-eaf1699ffb8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameState\state">
+      <UniqueIdentifier>{3ba5fb13-f6a3-4cce-96a1-36f83634dca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{95abbbb1-d910-45e9-b6c8-d86a79bedea4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{9f9c34dd-d0b6-427a-bf7b-25b6a6fd7ec2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Manager">
+      <UniqueIdentifier>{1084498b-a948-41ce-8ca7-a182a7e58e2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Camera">
+      <UniqueIdentifier>{df568825-f264-4e0a-86bc-d9e6a44d48cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Player">
+      <UniqueIdentifier>{e4fd8b2d-10d8-4107-9ee3-d860ff16fd61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\IObject">
+      <UniqueIdentifier>{447e10b9-36b5-45ea-97fa-c87422f8bef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Stage">
+      <UniqueIdentifier>{db81f29c-16bc-4432-b11e-929a4be93c5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{b8af31a6-b707-4716-aa59-756b387ae893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effect">
+      <UniqueIdentifier>{b6c46898-9f58-4285-922c-5c8a013e40fb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game\Stage\SkyDome.h">
+      <Filter>Object\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Source\Game.h" />
+    <ClInclude Include="Game\Stage\Ground.h">
+      <Filter>Object\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Object\GameObjectManager.h">
+      <Filter>Object\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameState\PauseState.h">
+      <Filter>GameState\state</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameState\PlayState.h">
+      <Filter>GameState\state</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameState\ResultState.h">
+      <Filter>GameState\state</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameState\TitleState.h">
+      <Filter>GameState\state</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Object\GameObject.h">
+      <Filter>Object\IObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Collider\BoxCollider.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Collider\Collider.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Camera\TPSCamera.h">
+      <Filter>Object\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameState\GameStateManager.h">
+      <Filter>GameState\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Source\DebugCamera.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Source\DebugFont.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Source\GridFloor.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Common\DeviceResources.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Common\GameContext.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Common\Projection.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Common\StepTimer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Common\Utilities.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\pch\pch.h" />
+    <ClInclude Include="Game\Collider\CollisionManager.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\Agravity.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\Floating.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\IPlayer.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\Jumping.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\Player.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\Running.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\Standing.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Collider\LineShape.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Collider\RaycastHit.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Collider\MoveBoxCollider.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Collider\BoxShape.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Stage\CheckPoint.h">
+      <Filter>Object\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Stage\Building.h">
+      <Filter>Object\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Common\ServiceLocator.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameState\IGameState.h">
+      <Filter>GameState\state</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Effect\BinaryFile.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Effect\EffectManager.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Effect\Myeffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game\Stage\SkyDome.cpp">
+      <Filter>Object\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Source\Game.cpp" />
+    <ClCompile Include="Game\Stage\Ground.cpp">
+      <Filter>Object\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\GameObjectManager.cpp">
+      <Filter>Object\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameState\PauseState.cpp">
+      <Filter>GameState\state</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameState\PlayState.cpp">
+      <Filter>GameState\state</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameState\ResultState.cpp">
+      <Filter>GameState\state</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameState\TitleState.cpp">
+      <Filter>GameState\state</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\GameObject.cpp">
+      <Filter>Object\IObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Collider\BoxCollider.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Collider\Collider.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Camera\TPSCamera.cpp">
+      <Filter>Object\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameState\GameStateManager.cpp">
+      <Filter>GameState\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Source\DebugCamera.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Source\DebugFont.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Source\GridFloor.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Source\Main.cpp" />
+    <ClCompile Include="Game\Common\DeviceResources.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\pch\pch.cpp" />
+    <ClCompile Include="Game\Collider\CollisionManager.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\Agravity.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\Floating.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\Jumping.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\Player.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\Running.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\Standing.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Collider\MoveBoxCollider.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Stage\CheckPoint.cpp">
+      <Filter>Object\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Stage\Building.cpp">
+      <Filter>Object\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Effect\BinaryFile.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Effect\EffectManager.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Effect\MyEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="directx.ico">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="settings.manifest">
+      <Filter>Assets</Filter>
+    </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Game\resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Resources\FBX\floor.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\FBX\Ground.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\FBX\Player.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\FBX\SkyDome.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\FBX\Building2.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\FBX\Building3.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\FBX\Building1.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+  </ItemGroup>
+</Project>
