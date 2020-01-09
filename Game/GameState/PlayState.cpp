@@ -97,7 +97,7 @@ void PlayState::Initialize()
 	//çÇÇ¢
 	Vector3 tallSize = Vector3(12.0f, 19.8f, 13.7f);
 	const int buil1Num = 3;
-	
+
 	std::unique_ptr<Building> buil1[buil1Num];
 	
 	buil1[0] = std::make_unique<Building>(Vector3(40.0f, 12.0f, 0.0f), tallSize);
