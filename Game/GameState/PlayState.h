@@ -11,6 +11,8 @@
 
 #include "IGameState.h"
 
+#include <Effect\EffectManager.h>
+
 class GridFloor;
 class GameObjectManager;
 class CollisionManager;
@@ -38,5 +40,7 @@ private:
 	std::unique_ptr<CollisionManager>   m_collisionManager;
 	
 	int m_count;
+
+	EffectManager* m_effectManager;
 };
 
