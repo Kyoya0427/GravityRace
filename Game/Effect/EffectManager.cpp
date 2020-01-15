@@ -66,10 +66,8 @@ void EffectManager::Create(DX::DeviceResources * deviceResources, const wchar_t*
 	bd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	bd.CPUAccessFlags = 0;
 	device->CreateBuffer(&bd, nullptr, &m_CBuffer);
-	m_fxFactory = std::make_unique<EffectFactory>(device);
-	m_fxFactory->SetDirectory(L"Resources");
 
-	m_model = Model::CreateFromCMO(device, L"Resources/cup.cmo", *m_fxFactory);
+	
 
 	for (int i = 0; i < count; i++) {
 		MyEffect* effect = new MyEffect();
@@ -286,9 +284,6 @@ void EffectManager::RenderModel()
 	//‚Æ‚è‚ ‚¦‚¸‚Ì“®‚«‚Ì‚½‚ß‚É‰ñ“]
 	static float rot = 0.0f;
 	rot += 0.1f;
-
-	//ƒ‚ƒfƒ‹‚ð•`‰æ
-	m_model->Draw(m_deviceResources->GetD3DDeviceContext(), *m_states, Matrix::CreateRotationZ(rot), m_view, m_proj);
 
 	//•`‰æ‚µ‚½‰æ–Ê‚ðm_srv‚É•Û‘¶
 	auto hr = m_deviceResources->GetD3DDevice()->CreateShaderResourceView(

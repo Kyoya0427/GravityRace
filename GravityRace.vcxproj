@@ -112,6 +112,7 @@
     <FxCompile>
       <ShaderType>
       </ShaderType>
+      <ObjectFileOutput>Resources/Shaders/%(Filename).cso</ObjectFileOutput>
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
