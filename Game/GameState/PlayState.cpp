@@ -107,20 +107,22 @@ void PlayState::Initialize()
 
 	//ë´èÍ
 	Vector3 footingSize = Vector3(11.8f, 1.0f, 7.9f);
-	const int buil2Num = 2;
+	const int buil2Num = 3;
 
 	std::unique_ptr<Building> buil2[buil2Num];
 	
 	buil2[0] = std::make_unique<Building>(Vector3(-90.0f, 120.0f, 60.0f), footingSize);
 	buil2[1] = std::make_unique<Building>(Vector3(-70.0f,  90.0f, 40.0f), footingSize);
+	buil2[2] = std::make_unique<Building>(Vector3(-45.0f,  10.0f, 10.0f), footingSize);
 	
 	//è¨Ç≥Ç¢
 	Vector3 shortSize = Vector3(7.45f, 7.35f, 7.6f);
-	const int buil3Num = 1;
+	const int buil3Num = 2;
 	
 	std::unique_ptr<Building> buil3[buil3Num];
 
 	buil3[0] = std::make_unique<Building>(Vector3(-116.0f, 7.0f, 120.0), shortSize);
+	buil3[1] = std::make_unique<Building>(Vector3(-90.0f, 7.0f, 100.0), shortSize);
 
 
 
