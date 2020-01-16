@@ -124,7 +124,7 @@ void Standing::ModeChangeProcess()
 	DirectX::Mouse::State mouseState = DirectX::Mouse::Get().GetState();
 	m_tracker.Update(mouseState);
 
-	if (m_tracker.rightButton == DirectX::Mouse::ButtonStateTracker::ButtonState::PRESSED)
+	if (m_tracker.rightButton == DirectX::Mouse::ButtonStateTracker::ButtonState::RELEASED)
 	{
 		m_player->SetVelocity(Vector3::Zero);
 		m_player->ChangeAgravity();

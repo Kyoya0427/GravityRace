@@ -96,13 +96,14 @@ void PlayState::Initialize()
 	m_builModel[2] = Model::CreateFromCMO(device, L"Resources/Models/Building3.cmo", *GameContext().Get<EffectFactory>());
 	//çÇÇ¢
 	Vector3 tallSize = Vector3(12.0f, 19.8f, 13.7f);
-	const int buil1Num = 3;
+	const int buil1Num = 4;
 	
 	std::unique_ptr<Building> buil1[buil1Num];
 	
 	buil1[0] = std::make_unique<Building>(Vector3(40.0f, 12.0f, 0.0f), tallSize);
 	buil1[1] = std::make_unique<Building>(Vector3(-105.0f, 12.0f, 108.0), tallSize);
 	buil1[2] = std::make_unique<Building>(Vector3(-70.0f, 12.0f, 81.0), tallSize);
+	buil1[3] = std::make_unique<Building>(Vector3(-70.0f, 12.0f, 60.0), tallSize);
 
 
 	//ë´èÍ
