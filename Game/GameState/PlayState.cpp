@@ -16,6 +16,7 @@
 #include <Game\Common\DeviceResources.h>
 #include <Game\Common\GameContext.h>
 #include <Game\Common\Projection.h>
+#include <Game\Common\StepTimer.h>
 
 #include <Game\Object\GameObjectManager.h>
 
@@ -41,7 +42,7 @@ using namespace DirectX::SimpleMath;
 /// </summary>
 PlayState::PlayState()
 	:IGameState()
-	
+	, m_effectManager(nullptr)
 	,m_count(0)
 {
 }
@@ -51,6 +52,11 @@ PlayState::PlayState()
 /// </summary>
 PlayState::~PlayState()
 {
+	if (m_effectManager != nullptr) {
+		m_effectManager->Lost();
+		delete m_effectManager;
+		m_effectManager = nullptr;
+	}
 }
 
 /// <summary>
@@ -86,6 +92,11 @@ void PlayState::Initialize()
 	std::unique_ptr<Ground> ground[1];
 	ground[0] = std::make_unique<Ground>(Vector3(  0.0f, 0.0f,   0.0f));
 
+	m_effectManager = new EnergyEffectManager();
+	m_effectManager->Create(GameContext().Get<DX::DeviceResources>(), L"Resources\\Textures\\energy.png", 1);
+	m_effectManager->InitializeCorn(5, Vector3(0, 0, 0), Vector3(0, 1, 0));
+	m_effectManager->SetRenderState(tpsCamera->GetPosition() + tpsCamera->GetEyePosition(), tpsCamera->GetViewMatrix() , GameContext().Get<Projection>()->GetMatrix());
+
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//stage
 	std::unique_ptr<CheckPoint> checkPoint = std::make_unique<CheckPoint>(Vector3(-90.0f, 125.0f, 62.0f));
@@ -97,7 +108,7 @@ void PlayState::Initialize()
 	//高い
 	Vector3 tallSize = Vector3(12.0f, 19.8f, 13.7f);
 	const int buil1Num = 3;
-	
+
 	std::unique_ptr<Building> buil1[buil1Num];
 	
 	buil1[0] = std::make_unique<Building>(Vector3(40.0f, 12.0f, 0.0f), tallSize);
@@ -184,6 +195,8 @@ void PlayState::Initialize()
 /// <param name="elapsedTime">タイマー</param>
 void PlayState::Update(float elapsedTime)
 {
+	TPSCamera* tpsCamera = GameContext().Get<TPSCamera>();
+
 	//ポーズ画面
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 	if (keyState.IsKeyDown(DirectX::Keyboard::P))
@@ -196,6 +209,9 @@ void PlayState::Update(float elapsedTime)
 	m_collisionManager->DetectCollision();
 	//ゲームオブジェクトアップデート
 	m_gameObjectManager->Update(elapsedTime);
+
+	m_effectManager->SetRenderState(tpsCamera->GetPosition() + tpsCamera->GetEyePosition(), tpsCamera->GetViewMatrix(), GameContext().Get<Projection>()->GetMatrix());
+	m_effectManager->Update(*GameContext().Get<DX::StepTimer>());
 }
 
 void PlayState::Render()
@@ -210,6 +226,7 @@ void PlayState::Render()
 	debugFont->print(10, 40, L"[P] Pause");
 	debugFont->draw();
 
+	m_effectManager->Render();
 }
 
 void PlayState::Finalize()

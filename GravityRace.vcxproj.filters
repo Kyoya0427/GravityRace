@@ -44,6 +44,9 @@
     <Filter Include="Effect">
       <UniqueIdentifier>{b6c46898-9f58-4285-922c-5c8a013e40fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{9069c883-6b49-4db2-8d45-0cd2aa47ae6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Stage\SkyDome.h">
@@ -159,10 +162,10 @@
     <ClInclude Include="Game\Effect\BinaryFile.h">
       <Filter>Effect</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Effect\EffectManager.h">
+    <ClInclude Include="Game\Effect\Myeffect.h">
       <Filter>Effect</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Effect\Myeffect.h">
+    <ClInclude Include="Game\Effect\EnergyEffectManager.h">
       <Filter>Effect</Filter>
     </ClInclude>
   </ItemGroup>
@@ -251,10 +254,10 @@
     <ClCompile Include="Game\Effect\BinaryFile.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Effect\EffectManager.cpp">
+    <ClCompile Include="Game\Effect\MyEffect.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Effect\MyEffect.cpp">
+    <ClCompile Include="Game\Effect\EnergyEffectManager.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
   </ItemGroup>
@@ -293,5 +296,21 @@
     <MeshContentTask Include="Resources\FBX\Building1.FBX">
       <Filter>Assets</Filter>
     </MeshContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Game\Shaders\ParticleGS.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Game\Shaders\ParticlePS.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Game\Shaders\ParticleVS.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Game\Shaders\Particle.hlsli">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

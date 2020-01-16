@@ -4,6 +4,7 @@
 // Author		: Kyoya Sakamoto
 //======================================================
 #include <pch.h>
+#include <Keyboard.h>
 
 #include "TitleState.h"
 
@@ -43,10 +44,9 @@ void TitleState::Initialize()
 /// <param name="elapsedTime">タイマー</param>
 void TitleState::Update(float elapsedTime)
 {
-	
-	m_count += elapsedTime;
+	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 
-	if (m_count > 3)
+	if (keyState.IsKeyDown(DirectX::Keyboard::Z))
 	{
 		using StateID = GameStateManager::GameStateID;
 
@@ -55,6 +55,7 @@ void TitleState::Update(float elapsedTime)
 		m_count = 0.0;
 	}
 
+	
 }
 
 /// <summary>
@@ -65,7 +66,7 @@ void TitleState::Render()
 	DebugFont* debugFont = DebugFont::GetInstance();
 	debugFont->print(10, 10, L"TitleState");
 	debugFont->draw();
-	debugFont->print(10, 40, L"%.2f / 3",m_count);
+	debugFont->print(10, 40, L"Z Key");
 	debugFont->draw();
 }
 

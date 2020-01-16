@@ -109,6 +109,11 @@
     <MeshContentTask>
       <ContentOutput>Resources\Models\%(Filename).cmo</ContentOutput>
     </MeshContentTask>
+    <FxCompile>
+      <ShaderType>
+      </ShaderType>
+      <ObjectFileOutput>Resources/Shaders/%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -149,6 +154,9 @@
     <MeshContentTask>
       <ContentOutput>Resources\Models\%(Filename).cmo</ContentOutput>
     </MeshContentTask>
+    <FxCompile>
+      <ShaderType>Pixel</ShaderType>
+    </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -185,7 +193,7 @@
     <ClInclude Include="Game\Common\StepTimer.h" />
     <ClInclude Include="Game\Common\Utilities.h" />
     <ClInclude Include="Game\Effect\BinaryFile.h" />
-    <ClInclude Include="Game\Effect\EffectManager.h" />
+    <ClInclude Include="Game\Effect\EnergyEffectManager.h" />
     <ClInclude Include="Game\Effect\Myeffect.h" />
     <ClInclude Include="Game\GameState\GameStateManager.h" />
     <ClInclude Include="Game\GameState\IGameState.h" />
@@ -220,7 +228,7 @@
     <ClCompile Include="Game\Collider\MoveBoxCollider.cpp" />
     <ClCompile Include="Game\Common\DeviceResources.cpp" />
     <ClCompile Include="Game\Effect\BinaryFile.cpp" />
-    <ClCompile Include="Game\Effect\EffectManager.cpp" />
+    <ClCompile Include="Game\Effect\EnergyEffectManager.cpp" />
     <ClCompile Include="Game\Effect\MyEffect.cpp" />
     <ClCompile Include="Game\GameState\GameStateManager.cpp" />
     <ClCompile Include="Game\GameState\PauseState.cpp" />
@@ -268,6 +276,21 @@
     <MeshContentTask Include="Resources\FBX\Ground.FBX" />
     <MeshContentTask Include="Resources\FBX\Player.FBX" />
     <MeshContentTask Include="Resources\FBX\SkyDome.FBX" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Game\Shaders\ParticleGS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Geometry</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Game\Shaders\ParticlePS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Game\Shaders\ParticleVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Game\Shaders\Particle.hlsli" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
