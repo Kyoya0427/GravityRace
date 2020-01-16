@@ -105,7 +105,9 @@ public:
 
 
 	RaycastHit GetRaycastHit() { return m_raycastHit; }
+
 	float GetEnergy() { return m_energy; }
+	float GetEnergyLate() { return m_energy / 5; }
 
 	void ChangeGravitation() { m_isGravityState = GRAVITATION; }
 	void ChangeAgravity()    { m_isGravityState = AGRAVITY; }

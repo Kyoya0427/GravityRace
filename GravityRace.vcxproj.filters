@@ -162,10 +162,10 @@
     <ClInclude Include="Game\Effect\BinaryFile.h">
       <Filter>Effect</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Effect\EffectManager.h">
+    <ClInclude Include="Game\Effect\Myeffect.h">
       <Filter>Effect</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Effect\Myeffect.h">
+    <ClInclude Include="Game\Effect\EnergyEffectManager.h">
       <Filter>Effect</Filter>
     </ClInclude>
   </ItemGroup>
@@ -254,10 +254,10 @@
     <ClCompile Include="Game\Effect\BinaryFile.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Effect\EffectManager.cpp">
+    <ClCompile Include="Game\Effect\MyEffect.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Effect\MyEffect.cpp">
+    <ClCompile Include="Game\Effect\EnergyEffectManager.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
   </ItemGroup>

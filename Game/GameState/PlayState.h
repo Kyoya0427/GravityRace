@@ -11,7 +11,7 @@
 
 #include "IGameState.h"
 
-#include <Effect\EffectManager.h>
+#include <Effect\EnergyEffectManager.h>
 
 class GridFloor;
 class GameObjectManager;
@@ -41,6 +41,6 @@ private:
 	
 	int m_count;
 
-	EffectManager* m_effectManager;
+	EnergyEffectManager* m_effectManager;
 };
 

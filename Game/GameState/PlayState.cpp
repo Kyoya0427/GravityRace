@@ -92,7 +92,7 @@ void PlayState::Initialize()
 	std::unique_ptr<Ground> ground[1];
 	ground[0] = std::make_unique<Ground>(Vector3(  0.0f, 0.0f,   0.0f));
 
-	m_effectManager = new EffectManager();
+	m_effectManager = new EnergyEffectManager();
 	m_effectManager->Create(GameContext().Get<DX::DeviceResources>(), L"Resources\\Textures\\energy.png", 1);
 	m_effectManager->InitializeCorn(5, Vector3(0, 0, 0), Vector3(0, 1, 0));
 	m_effectManager->SetRenderState(tpsCamera->GetPosition() + tpsCamera->GetEyePosition(), tpsCamera->GetViewMatrix() , GameContext().Get<Projection>()->GetMatrix());

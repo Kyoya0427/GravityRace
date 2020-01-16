@@ -193,7 +193,7 @@
     <ClInclude Include="Game\Common\StepTimer.h" />
     <ClInclude Include="Game\Common\Utilities.h" />
     <ClInclude Include="Game\Effect\BinaryFile.h" />
-    <ClInclude Include="Game\Effect\EffectManager.h" />
+    <ClInclude Include="Game\Effect\EnergyEffectManager.h" />
     <ClInclude Include="Game\Effect\Myeffect.h" />
     <ClInclude Include="Game\GameState\GameStateManager.h" />
     <ClInclude Include="Game\GameState\IGameState.h" />
@@ -228,7 +228,7 @@
     <ClCompile Include="Game\Collider\MoveBoxCollider.cpp" />
     <ClCompile Include="Game\Common\DeviceResources.cpp" />
     <ClCompile Include="Game\Effect\BinaryFile.cpp" />
-    <ClCompile Include="Game\Effect\EffectManager.cpp" />
+    <ClCompile Include="Game\Effect\EnergyEffectManager.cpp" />
     <ClCompile Include="Game\Effect\MyEffect.cpp" />
     <ClCompile Include="Game\GameState\GameStateManager.cpp" />
     <ClCompile Include="Game\GameState\PauseState.cpp" />
