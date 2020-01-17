@@ -81,7 +81,7 @@ void CollisionManager::DetectCollision(const ColliderList& colliders1, const Col
 		for (const Collider* collider2 : colliders2)
 		{
 			RaycastHit hit;
-			hit;
+			
 			if (collider1->IsCollided(collider2,&hit))
 			{
 				collider1->HitContact(collider2,&hit);
