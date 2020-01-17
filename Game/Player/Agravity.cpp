@@ -16,6 +16,7 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 using namespace std;
+
 /// <summary>
 /// コンストラクタ
 /// </summary>
@@ -105,9 +106,9 @@ void Agravity::AgravityModeOff()
 {
 	DirectX::Mouse::State mouseState = DirectX::Mouse::Get().GetState();
 
-	if (m_tracker.rightButton == Mouse::ButtonStateTracker::ButtonState::PRESSED)
+	if (m_tracker.rightButton == Mouse::ButtonStateTracker::ButtonState::RELEASED)
 	{
-		m_player->ChangeStandingState();
+		m_player->ChangeJumpingState();
 		m_player->ChangeGravitation();
 		m_player->SetVelocity(Vector3::Zero);
 	}
