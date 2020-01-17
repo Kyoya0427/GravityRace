@@ -52,7 +52,8 @@ PlayState::PlayState()
 /// </summary>
 PlayState::~PlayState()
 {
-	if (m_effectManager != nullptr) {
+	if (m_effectManager != nullptr) 
+	{
 		m_effectManager->Lost();
 		delete m_effectManager;
 		m_effectManager = nullptr;
@@ -105,7 +106,7 @@ void PlayState::Initialize()
 	m_builModel[0] = Model::CreateFromCMO(device, L"Resources/Models/Building1.cmo", *GameContext().Get<EffectFactory>());
 	m_builModel[1] = Model::CreateFromCMO(device, L"Resources/Models/Building2.cmo", *GameContext().Get<EffectFactory>());
 	m_builModel[2] = Model::CreateFromCMO(device, L"Resources/Models/Building3.cmo", *GameContext().Get<EffectFactory>());
-	//����
+	//高い
 	Vector3 tallSize = Vector3(12.0f, 19.8f, 13.7f);
 	const int buil1Num = 4;
 	
@@ -117,7 +118,7 @@ void PlayState::Initialize()
 	buil1[3] = std::make_unique<Building>(Vector3(-70.0f, 12.0f, 60.0), tallSize);
 
 
-	//����
+	//平
 	Vector3 footingSize = Vector3(11.8f, 1.0f, 7.9f);
 	const int buil2Num = 3;
 
@@ -127,7 +128,7 @@ void PlayState::Initialize()
 	buil2[1] = std::make_unique<Building>(Vector3(-70.0f,  90.0f, 40.0f), footingSize);
 	buil2[2] = std::make_unique<Building>(Vector3(-45.0f,  10.0f, 10.0f), footingSize);
 	
-	//������
+	//低い
 	Vector3 shortSize = Vector3(7.45f, 7.35f, 7.6f);
 	const int buil3Num = 2;
 	
