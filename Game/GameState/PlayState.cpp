@@ -1,6 +1,6 @@
 //======================================================
 // File Name	 : play.cpp
-// Summary	 : ƒvƒŒƒCƒXƒeƒCƒg
+// Summary	 : ï¿½vï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Cï¿½g
 // Author		 : Kyoya Sakamoto
 //======================================================
 //#include <pch.h>
@@ -16,6 +16,7 @@
 #include <Game\Common\DeviceResources.h>
 #include <Game\Common\GameContext.h>
 #include <Game\Common\Projection.h>
+#include <Game\Common\StepTimer.h>
 
 #include <Game\Object\GameObjectManager.h>
 
@@ -37,64 +38,74 @@ using namespace DirectX::SimpleMath;
 
 
 /// <summary>
-/// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+/// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 /// </summary>
 PlayState::PlayState()
 	:IGameState()
-	
+	, m_effectManager(nullptr)
 	,m_count(0)
 {
 }
 
 /// <summary>
-/// ƒfƒXƒgƒ‰ƒNƒ^
+/// ï¿½fï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 /// </summary>
 PlayState::~PlayState()
 {
+	if (m_effectManager != nullptr) {
+		m_effectManager->Lost();
+		delete m_effectManager;
+		m_effectManager = nullptr;
+	}
 }
 
 /// <summary>
-/// ƒCƒjƒVƒƒƒ‰ƒCƒY
+/// ï¿½Cï¿½jï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½Y
 /// </summary>
 void PlayState::Initialize()
 {
-	//ƒQ[ƒ€ƒRƒ“ƒeƒLƒXƒg
+	//ï¿½Qï¿½[ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½g
 	ID3D11Device* device = GameContext().Get<DX::DeviceResources>()->GetD3DDevice();
 
-	//ƒQ[ƒ€ƒIƒuƒWƒFƒNƒgƒ}ƒlƒWƒƒ[
+	//ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½}ï¿½lï¿½Wï¿½ï¿½ï¿½[
 	m_gameObjectManager = std::make_unique<GameObjectManager>();
 	GameContext().Register<GameObjectManager>(m_gameObjectManager.get());
 
-	//ƒRƒŠƒWƒ‡ƒ“ƒ}ƒl[ƒWƒƒ[
+	//ï¿½Rï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½}ï¿½lï¿½[ï¿½Wï¿½ï¿½ï¿½[
 	m_collisionManager = std::make_unique<CollisionManager>();
 	GameContext().Register<CollisionManager>(m_collisionManager.get());
 
-	//ƒGƒtƒFƒNƒgƒtƒ@ƒNƒgƒŠ[İ’è
+	//ï¿½Gï¿½tï¿½Fï¿½Nï¿½gï¿½tï¿½@ï¿½Nï¿½gï¿½ï¿½ï¿½[ï¿½İ’ï¿½
 	DirectX::EffectFactory* factory = new DirectX::EffectFactory(device);
 	factory->SetDirectory(L"Resources/Models");
 	GameContext().Register<EffectFactory>(factory);
 
-	//ƒJƒƒ‰ì¬
+	//ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 	std::unique_ptr<TPSCamera> tpsCamera = std::make_unique<TPSCamera>();
 	GameContext().Register<TPSCamera>(tpsCamera.get());
 	
-	//ƒvƒŒƒCƒ„[ì¬
+	//ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ì¬
 	std::unique_ptr<Player> player = std::make_unique<Player>();
 	GameContext().Register<Player>(player.get());
 
-	////’n–Êì¬
+	////ï¿½nï¿½Êì¬
 	std::unique_ptr<Ground> ground[1];
 	ground[0] = std::make_unique<Ground>(Vector3(  0.0f, 0.0f,   0.0f));
+
+	m_effectManager = new EnergyEffectManager();
+	m_effectManager->Create(GameContext().Get<DX::DeviceResources>(), L"Resources\\Textures\\energy.png", 1);
+	m_effectManager->InitializeCorn(5, Vector3(0, 0, 0), Vector3(0, 1, 0));
+	m_effectManager->SetRenderState(tpsCamera->GetPosition() + tpsCamera->GetEyePosition(), tpsCamera->GetViewMatrix() , GameContext().Get<Projection>()->GetMatrix());
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//stage
 	std::unique_ptr<CheckPoint> checkPoint = std::make_unique<CheckPoint>(Vector3(-90.0f, 125.0f, 62.0f));
-	//ƒvƒŒƒCƒ„[-116.0f, 5.0f, 134.0f
+	//ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[-116.0f, 5.0f, 134.0f
 
 	m_builModel[0] = Model::CreateFromCMO(device, L"Resources/Models/Building1.cmo", *GameContext().Get<EffectFactory>());
 	m_builModel[1] = Model::CreateFromCMO(device, L"Resources/Models/Building2.cmo", *GameContext().Get<EffectFactory>());
 	m_builModel[2] = Model::CreateFromCMO(device, L"Resources/Models/Building3.cmo", *GameContext().Get<EffectFactory>());
-	//‚‚¢
+	//ï¿½ï¿½ï¿½ï¿½
 	Vector3 tallSize = Vector3(12.0f, 19.8f, 13.7f);
 	const int buil1Num = 4;
 	
@@ -106,7 +117,7 @@ void PlayState::Initialize()
 	buil1[3] = std::make_unique<Building>(Vector3(-70.0f, 12.0f, 60.0), tallSize);
 
 
-	//‘«ê
+	//ï¿½ï¿½ï¿½ï¿½
 	Vector3 footingSize = Vector3(11.8f, 1.0f, 7.9f);
 	const int buil2Num = 3;
 
@@ -116,7 +127,7 @@ void PlayState::Initialize()
 	buil2[1] = std::make_unique<Building>(Vector3(-70.0f,  90.0f, 40.0f), footingSize);
 	buil2[2] = std::make_unique<Building>(Vector3(-45.0f,  10.0f, 10.0f), footingSize);
 	
-	//¬‚³‚¢
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	Vector3 shortSize = Vector3(7.45f, 7.35f, 7.6f);
 	const int buil3Num = 2;
 	
@@ -146,11 +157,11 @@ void PlayState::Initialize()
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-	//ƒXƒJƒCƒh[ƒ€
+	//ï¿½Xï¿½Jï¿½Cï¿½hï¿½[ï¿½ï¿½
 	std::unique_ptr<SkyDome> skyDome = std::make_unique<SkyDome>();
 
 	m_gameObjectManager->Add(std::move(skyDome));
-	//ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚É’Ç‰Á
+	//ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½É’Ç‰ï¿½
 	for (int i = 0; i < 1; i++)
 	{
 		m_gameObjectManager->Add(std::move(ground[i]));
@@ -182,12 +193,14 @@ void PlayState::Initialize()
 }
 
 /// <summary>
-/// ƒAƒbƒvƒf[ƒg
+/// ï¿½Aï¿½bï¿½vï¿½fï¿½[ï¿½g
 /// </summary>
-/// <param name="elapsedTime">ƒ^ƒCƒ}[</param>
+/// <param name="elapsedTime">ï¿½^ï¿½Cï¿½}ï¿½[</param>
 void PlayState::Update(float elapsedTime)
 {
-	//ƒ|[ƒY‰æ–Ê
+	TPSCamera* tpsCamera = GameContext().Get<TPSCamera>();
+
+	//ï¿½|ï¿½[ï¿½Yï¿½ï¿½ï¿½
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 	if (keyState.IsKeyDown(DirectX::Keyboard::P))
 	{
@@ -197,22 +210,26 @@ void PlayState::Update(float elapsedTime)
 	}
 
 	m_collisionManager->DetectCollision();
-	//ƒQ[ƒ€ƒIƒuƒWƒFƒNƒgƒAƒbƒvƒf[ƒg
+	//ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Aï¿½bï¿½vï¿½fï¿½[ï¿½g
 	m_gameObjectManager->Update(elapsedTime);
+
+	m_effectManager->SetRenderState(tpsCamera->GetPosition() + tpsCamera->GetEyePosition(), tpsCamera->GetViewMatrix(), GameContext().Get<Projection>()->GetMatrix());
+	m_effectManager->Update(*GameContext().Get<DX::StepTimer>());
 }
 
 void PlayState::Render()
 {
-	//ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg•`‰æ
+	//ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½`ï¿½ï¿½
 	m_gameObjectManager->Render();
 	
-	//ƒfƒoƒbƒN•\‹L
+	//ï¿½fï¿½oï¿½bï¿½Nï¿½\ï¿½L
 	DebugFont* debugFont = DebugFont::GetInstance();
 	debugFont->print(10, 10, L"PlayState");
 	debugFont->draw();
 	debugFont->print(10, 40, L"[P] Pause");
 	debugFont->draw();
 
+	m_effectManager->Render();
 }
 
 void PlayState::Finalize()

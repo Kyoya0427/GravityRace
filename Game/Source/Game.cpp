@@ -58,6 +58,7 @@ void Game::Initialize(HWND window, int width, int height)
 	m_state = std::make_unique<CommonStates>(m_deviceResources->GetD3DDevice());
 	GameContext().Register<DirectX::CommonStates>(m_state);
 
+	GameContext().Register<DX::StepTimer>(&m_timer);
     // TODO: Change the timer settings if you want something other than the default variable timestep mode.
     // e.g. for 60 FPS fixed timestep update logic, call:
     /*
@@ -101,7 +102,6 @@ void Game::Update(DX::StepTimer const& timer)
     float elapsedTime = float(timer.GetElapsedSeconds());
 
     // TODO: Add your game logic here.
-    elapsedTime;
 
 	m_gameStateManager->Update(elapsedTime);
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
