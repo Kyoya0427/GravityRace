@@ -19,4 +19,5 @@ cbuffer ConstBuffer	: register(b0)
 	matrix matProj;
 	float4 Time;
 	float4 Energy;
+	float4 ConcentrationLine;
 };

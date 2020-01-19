@@ -11,12 +11,13 @@
 
 #include "IGameState.h"
 
-#include <Effect\EnergyEffectManager.h>
+
 
 class GridFloor;
 class GameObjectManager;
 class CollisionManager;
-
+class EnergyEffectManager;
+class ConcentrationLineEffectManager;
 
 class PlayState :public IGameState
 {
@@ -34,13 +35,14 @@ public:
 
 private:
 	
-	std::unique_ptr<DirectX::Model> m_builModel[3];
+	std::unique_ptr<DirectX::Model>     m_builModel[3];
 
 	std::unique_ptr<GameObjectManager>  m_gameObjectManager;
 	std::unique_ptr<CollisionManager>   m_collisionManager;
 	
-	int m_count;
+	int                                 m_count;
 
-	EnergyEffectManager* m_effectManager;
+	EnergyEffectManager*                m_effectManager;
+	ConcentrationLineEffectManager *    m_concentrationLineEffectManager;
 };
 

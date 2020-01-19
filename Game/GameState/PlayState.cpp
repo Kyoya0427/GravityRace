@@ -11,27 +11,30 @@
 #include <Keyboard.h>
 #include <Effects.h>
 
-#include <Game\Source\DebugFont.h>
+#include <Source\DebugFont.h>
 
-#include <Game\Common\DeviceResources.h>
-#include <Game\Common\GameContext.h>
-#include <Game\Common\Projection.h>
-#include <Game\Common\StepTimer.h>
+#include <Common\DeviceResources.h>
+#include <Common\GameContext.h>
+#include <Common\Projection.h>
+#include <Common\StepTimer.h>
 
-#include <Game\Object\GameObjectManager.h>
+#include <Object\GameObjectManager.h>
 
-#include <Game\Collider\CollisionManager.h>
+#include <Collider\CollisionManager.h>
 
-#include <Game\Source\GridFloor.h>
+#include <Source\GridFloor.h>
 
-#include <Game\Camera\TPSCamera.h>
+#include <Camera\TPSCamera.h>
 
-#include <Game\Player\Player.h>
+#include <Player\Player.h>
 
-#include <Game\Stage\Ground.h>
-#include <Game\Stage\SkyDome.h>
-#include <Game\Stage\CheckPoint.h>
-#include <Game\Stage\Building.h>
+#include <Stage\Ground.h>
+#include <Stage\SkyDome.h>
+#include <Stage\CheckPoint.h>
+#include <Stage\Building.h>
+
+#include <Effect\EnergyEffectManager.h>
+#include <Effect\ConcentrationLineEffectManager.h>
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -43,6 +46,7 @@ using namespace DirectX::SimpleMath;
 PlayState::PlayState()
 	:IGameState()
 	, m_effectManager(nullptr)
+	, m_concentrationLineEffectManager(nullptr)
 	,m_count(0)
 {
 }
@@ -57,6 +61,11 @@ PlayState::~PlayState()
 		m_effectManager->Lost();
 		delete m_effectManager;
 		m_effectManager = nullptr;
+	}
+	if (m_concentrationLineEffectManager != nullptr) {
+		m_concentrationLineEffectManager->Lost();
+		delete m_concentrationLineEffectManager;
+		m_concentrationLineEffectManager = nullptr;
 	}
 }
 
@@ -97,6 +106,11 @@ void PlayState::Initialize()
 	m_effectManager->Create(GameContext().Get<DX::DeviceResources>(), L"Resources\\Textures\\energy.png", 1);
 	m_effectManager->InitializeCorn(5, Vector3(0, 0, 0), Vector3(0, 1, 0));
 	m_effectManager->SetRenderState(tpsCamera->GetPosition() + tpsCamera->GetEyePosition(), tpsCamera->GetViewMatrix() , GameContext().Get<Projection>()->GetMatrix());
+
+	m_concentrationLineEffectManager = new ConcentrationLineEffectManager();
+	m_concentrationLineEffectManager->Create(GameContext().Get<DX::DeviceResources>(), L"Resources\\Textures\\concentrationLine.png", 1);
+	m_concentrationLineEffectManager->InitializeCorn(5, Vector3(0, 0, 0), Vector3(0, 1, 0));
+	m_concentrationLineEffectManager->SetRenderState(tpsCamera->GetPosition() + tpsCamera->GetEyePosition(), tpsCamera->GetViewMatrix(), GameContext().Get<Projection>()->GetMatrix());
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//stage
@@ -216,6 +230,9 @@ void PlayState::Update(float elapsedTime)
 
 	m_effectManager->SetRenderState(tpsCamera->GetPosition() + tpsCamera->GetEyePosition(), tpsCamera->GetViewMatrix(), GameContext().Get<Projection>()->GetMatrix());
 	m_effectManager->Update(*GameContext().Get<DX::StepTimer>());
+
+	m_concentrationLineEffectManager->SetRenderState(tpsCamera->GetPosition() + tpsCamera->GetEyePosition(), tpsCamera->GetViewMatrix(), GameContext().Get<Projection>()->GetMatrix());
+	m_concentrationLineEffectManager->Update(*GameContext().Get<DX::StepTimer>());
 }
 
 void PlayState::Render()
@@ -231,6 +248,7 @@ void PlayState::Render()
 	debugFont->draw();
 
 	m_effectManager->Render();
+	m_concentrationLineEffectManager->Render();
 }
 
 void PlayState::Finalize()
