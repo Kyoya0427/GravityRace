@@ -113,6 +113,7 @@
       <ShaderType>
       </ShaderType>
       <ObjectFileOutput>Resources/Shaders/%(Filename).cso</ObjectFileOutput>
+      <ShaderModel>5.0</ShaderModel>
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -160,6 +161,7 @@
       <DisableOptimizations>false</DisableOptimizations>
       <EnableDebuggingInformation>false</EnableDebuggingInformation>
       <ObjectFileOutput>Resources/Shaders/%(Filename).cso</ObjectFileOutput>
+      <ShaderModel>5.0</ShaderModel>
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -224,6 +226,7 @@
     <ClInclude Include="Game\Stage\CheckPoint.h" />
     <ClInclude Include="Game\Stage\Ground.h" />
     <ClInclude Include="Game\Stage\SkyDome.h" />
+    <ClInclude Include="Game\UI\Blink.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Camera\TPSCamera.cpp" />
@@ -264,6 +267,7 @@
     <ClCompile Include="Game\Stage\CheckPoint.cpp" />
     <ClCompile Include="Game\Stage\Ground.cpp" />
     <ClCompile Include="Game\Stage\SkyDome.cpp" />
+    <ClCompile Include="Game\UI\Blink.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="directx.ico" />
@@ -286,6 +290,9 @@
   <ItemGroup>
     <FxCompile Include="Game\Shaders\ConcentrationLinePS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
     </FxCompile>
     <FxCompile Include="Game\Shaders\EnergyPS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>

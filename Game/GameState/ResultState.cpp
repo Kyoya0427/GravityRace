@@ -13,6 +13,10 @@
 
 #include "GameStateManager.h"
 
+#include <WICTextureLoader.h>
+
+#include <Common\DeviceResources.h>
+
 /// <summary>
 /// コンストラクタ
 /// </summary>
@@ -34,7 +38,9 @@ ResultState::~ResultState()
 /// </summary>
 void ResultState::Initialize()
 {
-	m_count = 0.0f;
+	m_spriteBatch = std::make_unique<DirectX::SpriteBatch>(GameContext().Get<DX::DeviceResources>()->GetD3DDeviceContext());
+	DirectX::CreateWICTextureFromFile(GameContext().Get<DX::DeviceResources>()->GetD3DDevice(), L"Resources\\Textures\\Result.png", NULL, m_texture.ReleaseAndGetAddressOf());
+	m_pos = DirectX::SimpleMath::Vector2(0, 0);
 }
 
 /// <summary>
@@ -43,16 +49,15 @@ void ResultState::Initialize()
 /// <param name="elapsedTime">タイマー</param>
 void ResultState::Update(float elapsedTime)
 {
-	
-	m_count += elapsedTime;
+	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
+	m_keyTracker.Update(keyState);
 
-	if (m_count > 3)
+	if (m_keyTracker.IsKeyReleased(DirectX::Keyboard::Space))
 	{
 		using StateID = GameStateManager::GameStateID;
 
 		GameStateManager* gameStateManager = GameContext().Get<GameStateManager>();
 		gameStateManager->RequestState(StateID::TITLE_STATE);
-		m_count = 0.0f;
 	}
 }
 
@@ -61,11 +66,9 @@ void ResultState::Update(float elapsedTime)
 /// </summary>
 void ResultState::Render()
 {
-	DebugFont* debugFont = DebugFont::GetInstance();
-	debugFont->print(10, 10, L"ResultState");
-	debugFont->draw();
-	debugFont->print(10, 40, L"%.2f / 3", m_count);
-	debugFont->draw();
+	m_spriteBatch->Begin();
+	m_spriteBatch->Draw(m_texture.Get(), m_pos);
+	m_spriteBatch->End();
 }
 
 /// <summary>

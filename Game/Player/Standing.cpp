@@ -52,9 +52,6 @@ void Standing::Update(float elapsedTime)
 /// </summary>
 void Standing::Render()
 {
-	DebugFont* debugFont = DebugFont::GetInstance();
-	debugFont->print(600, 10, L"Standing");
-	debugFont->draw();
 }
 
 /// <summary>

@@ -123,9 +123,7 @@ void TPSCamera::Update(float elapsedTime)
 /// </summary>
 void TPSCamera::Render()
 {
-	DebugFont* debugFont = DebugFont::GetInstance();
-	debugFont->print(10, 150, L"X = %2f Y = %2f Z = %2f", m_euler.x, m_euler.y, m_euler.y);
-	debugFont->draw();
+
 }
 
 

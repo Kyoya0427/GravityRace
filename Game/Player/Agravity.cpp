@@ -51,9 +51,6 @@ void Agravity::Update(float elapsedTime)
 /// </summary>
 void Agravity::Render()
 {
-	DebugFont* debugFont = DebugFont::GetInstance();
-	debugFont->print(600, 10, L"Agravity");
-	debugFont->draw();
 }
 
 

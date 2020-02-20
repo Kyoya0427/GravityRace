@@ -126,10 +126,10 @@ void PlayState::Initialize()
 	
 	std::unique_ptr<Building> buil1[buil1Num];
 	
-	buil1[0] = std::make_unique<Building>(Vector3(40.0f, 12.0f, 0.0f), tallSize);
-	buil1[1] = std::make_unique<Building>(Vector3(-105.0f, 12.0f, 108.0), tallSize);
-	buil1[2] = std::make_unique<Building>(Vector3(-70.0f, 12.0f, 81.0), tallSize);
-	buil1[3] = std::make_unique<Building>(Vector3(-70.0f, 12.0f, 60.0), tallSize);
+	buil1[0] = std::make_unique<Building>(Vector3(  40.0f, 12.0f,   0.0f), tallSize);
+	buil1[1] = std::make_unique<Building>(Vector3(-105.0f, 12.0f, 108.0f), tallSize);
+	buil1[2] = std::make_unique<Building>(Vector3( -70.0f, 12.0f,  80.0f), tallSize);
+	buil1[3] = std::make_unique<Building>(Vector3( -88.0f, 12.0f,  60.0f), tallSize);
 
 
 	//平
@@ -241,11 +241,7 @@ void PlayState::Render()
 	m_gameObjectManager->Render();
 	
 	//�f�o�b�N�\�L
-	DebugFont* debugFont = DebugFont::GetInstance();
-	debugFont->print(10, 10, L"PlayState");
-	debugFont->draw();
-	debugFont->print(10, 40, L"[P] Pause");
-	debugFont->draw();
+
 
 	m_effectManager->Render();
 	m_concentrationLineEffectManager->Render();
