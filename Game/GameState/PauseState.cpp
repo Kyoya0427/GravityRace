@@ -61,9 +61,6 @@ void PauseState::Update(float elapsedTime)
 /// </summary>
 void PauseState::Render()
 {
-	DebugFont* debugFont = DebugFont::GetInstance();
-	debugFont->print(300, 280, L"[Z] Title   [X] Play");
-	debugFont->draw();
 }
 /// <summary>
 /// ファイナライズ

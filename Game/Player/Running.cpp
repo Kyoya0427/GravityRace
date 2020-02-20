@@ -53,11 +53,6 @@ void Running::Update(float elapsedTime)
 /// </summary>
 void Running::Render()
 {
-	DebugFont* debugFont = DebugFont::GetInstance();
-	debugFont->print(600, 10, L"Running");
-	debugFont->draw();
-
-	
 }
 
 /// <summary>

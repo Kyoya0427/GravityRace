@@ -49,7 +49,5 @@ void Floating::Update(float elapsedTime)
 
 void Floating::Render()
 {
-	DebugFont* debugFont = DebugFont::GetInstance();
-	debugFont->print(600, 10, L"Floating");
-	debugFont->draw();
+
 }

@@ -49,9 +49,6 @@ void Jumping::Update(float elapsedTime)
 /// </summary>
 void Jumping::Render()
 {
-	DebugFont* debugFont = DebugFont::GetInstance();
-	debugFont->print(600, 10, L"Jumping");
-	debugFont->draw();
 }
 
 /// <summary>

@@ -14,12 +14,16 @@
 
 #include "GameStateManager.h"
 
+#include <WICTextureLoader.h>
+
+#include <Common\DeviceResources.h>
+
 /// <summary>
 /// コンストラクタ
 /// </summary>
 TitleState::TitleState()
 	:IGameState()
-	, m_count(0)
+	, m_blinkFlag(false)
 {
 }
 
@@ -35,7 +39,16 @@ TitleState::~TitleState()
 /// </summary>
 void TitleState::Initialize()
 {
-	m_count = 0.0f;
+	m_spriteBatch = std::make_unique<DirectX::SpriteBatch>(GameContext().Get<DX::DeviceResources>()->GetD3DDeviceContext());
+	DirectX::CreateWICTextureFromFile(GameContext().Get<DX::DeviceResources>()->GetD3DDevice(), L"Resources\\Textures\\Title.png", NULL, m_texture.ReleaseAndGetAddressOf());
+	m_pos = DirectX::SimpleMath::Vector2(0, 0);
+
+	DirectX::CreateWICTextureFromFile(GameContext().Get<DX::DeviceResources>()->GetD3DDevice(), L"Resources\\Textures\\space.png", NULL, m_pushTexture.ReleaseAndGetAddressOf());
+	m_pushPos = DirectX::SimpleMath::Vector2(430, 500);
+
+	m_blink = std::make_unique<Blink>();
+	m_blink->Initialize(0.16f);
+	m_blink->Start();
 }
 
 /// <summary>
@@ -45,17 +58,18 @@ void TitleState::Initialize()
 void TitleState::Update(float elapsedTime)
 {
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
+	m_keyTracker.Update(keyState);
 
-	if (keyState.IsKeyDown(DirectX::Keyboard::Z))
+	if (m_keyTracker.IsKeyReleased(DirectX::Keyboard::Space))
 	{
 		using StateID = GameStateManager::GameStateID;
 
 		GameStateManager* gameStateManager = GameContext().Get<GameStateManager>();
 		gameStateManager->RequestState(StateID::PLAY_STATE);
-		m_count = 0.0;
 	}
 
-	
+	SelectPartsMode(true);
+	m_blink->Update(elapsedTime);
 }
 
 /// <summary>
@@ -63,11 +77,18 @@ void TitleState::Update(float elapsedTime)
 /// </summary>
 void TitleState::Render()
 {
-	DebugFont* debugFont = DebugFont::GetInstance();
-	debugFont->print(10, 10, L"TitleState");
-	debugFont->draw();
-	debugFont->print(10, 40, L"Z Key");
-	debugFont->draw();
+	m_spriteBatch->Begin();
+	
+	m_spriteBatch->Draw(m_texture.Get(), m_pos);
+
+	if (m_blinkFlag == false || m_blink->GetState())
+	{
+		m_spriteBatch->Draw(m_pushTexture.Get(), m_pushPos);
+	}
+
+	
+
+	m_spriteBatch->End();
 }
 
 /// <summary>
@@ -75,4 +96,18 @@ void TitleState::Render()
 /// </summary>
 void TitleState::Finalize()
 {
+}
+
+void TitleState::SelectPartsMode(bool flag)
+{
+	m_blinkFlag = flag;
+	// 点滅間隔の設定
+	if (m_blinkFlag == true)
+	{
+		m_blink->Initialize(0.2f);
+	}
+	else
+	{
+		m_blink->Initialize(0.2f);
+	}
 }

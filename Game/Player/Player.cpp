@@ -111,7 +111,7 @@ void Player::Update(float elapsedTime)
 	m_player->Update(elapsedTime);
 
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
-	if (keyState.IsKeyDown(DirectX::Keyboard::Keys::Q))
+	if (GetPosition().y <= - 100.0f)
 	{
 		SetPosition(Vector3(-116.0f, 5.0f, 134.0f));
 		SetVelocity(Vector3::Zero);
@@ -142,8 +142,8 @@ void Player::Render()
 	m_scale = 0.05;
 
 	Matrix scalemat = Matrix::CreateScale(m_scale);
-	
 	Matrix rotMat = Matrix::CreateFromQuaternion(m_rotation) ;
+	
 	
 	
 	Matrix transMat = Matrix::CreateTranslation(m_position);

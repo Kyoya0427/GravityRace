@@ -241,11 +241,7 @@ void PlayState::Render()
 	m_gameObjectManager->Render();
 	
 	//�f�o�b�N�\�L
-	DebugFont* debugFont = DebugFont::GetInstance();
-	debugFont->print(10, 10, L"PlayState");
-	debugFont->draw();
-	debugFont->print(10, 40, L"[P] Pause");
-	debugFont->draw();
+
 
 	m_effectManager->Render();
 	m_concentrationLineEffectManager->Render();
