@@ -1,6 +1,6 @@
 //======================================================
 // File Name	 : play.cpp
-// Summary	 : �v���C�X�e�C�g
+// Summary	 : プレイステート
 // Author		 : Kyoya Sakamoto
 //======================================================
 //#include <pch.h>
@@ -41,18 +41,17 @@ using namespace DirectX::SimpleMath;
 
 
 /// <summary>
-/// �R���X�g���N�^
+/// コンストラクタ
 /// </summary>
 PlayState::PlayState()
 	:IGameState()
 	, m_effectManager(nullptr)
 	, m_concentrationLineEffectManager(nullptr)
-	,m_count(0)
 {
 }
 
 /// <summary>
-/// �f�X�g���N�^
+/// デストラクタ
 /// </summary>
 PlayState::~PlayState()
 {
@@ -70,31 +69,31 @@ PlayState::~PlayState()
 }
 
 /// <summary>
-/// �C�j�V�����C�Y
+/// 初期化
 /// </summary>
 void PlayState::Initialize()
 {
-	//�Q�[���R���e�L�X�g
+	//デバイス取得
 	ID3D11Device* device = GameContext().Get<DX::DeviceResources>()->GetD3DDevice();
 
-	//�Q�[���I�u�W�F�N�g�}�l�W���[
+	//ゲームオブジェクトマネジャー生成
 	m_gameObjectManager = std::make_unique<GameObjectManager>();
 	GameContext().Register<GameObjectManager>(m_gameObjectManager.get());
 
-	//�R���W�����}�l�[�W���[
+	//コライダーマネジャー生成
 	m_collisionManager = std::make_unique<CollisionManager>();
 	GameContext().Register<CollisionManager>(m_collisionManager.get());
 
-	//�G�t�F�N�g�t�@�N�g���[�ݒ�
+	//モデルファイル先指定
 	DirectX::EffectFactory* factory = new DirectX::EffectFactory(device);
 	factory->SetDirectory(L"Resources/Models");
 	GameContext().Register<EffectFactory>(factory);
 
-	//�J�����쐬
+	//TPSカメラ生成
 	std::unique_ptr<TPSCamera> tpsCamera = std::make_unique<TPSCamera>();
 	GameContext().Register<TPSCamera>(tpsCamera.get());
 	
-	//�v���C���[�쐬
+	//プレイヤー生成
 	std::unique_ptr<Player> player = std::make_unique<Player>();
 	GameContext().Register<Player>(player.get());
 
@@ -201,7 +200,7 @@ void PlayState::Initialize()
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	m_gameObjectManager->Add(std::move(tpsCamera));
-	m_gameObjectManager->Add(std::move(player));
+//	m_gameObjectManager->Add(std::move(player));
 	
 
 	m_collisionManager->AllowCollision("Player", "Ground");

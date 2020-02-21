@@ -39,8 +39,6 @@ private:
 
 	std::unique_ptr<GameObjectManager>  m_gameObjectManager;
 	std::unique_ptr<CollisionManager>   m_collisionManager;
-	
-	int                                 m_count;
 
 	EnergyEffectManager*                m_effectManager;
 	ConcentrationLineEffectManager *    m_concentrationLineEffectManager;
