@@ -19,15 +19,24 @@ using namespace DirectX;
 
 using Microsoft::WRL::ComPtr;
 
+/// <summary>
+/// コンストラクタ
+/// </summary>
+/// <returns></returns>
 Game::Game() noexcept(false)
 {
+	//デバイスリソーシーズ生成と登録
     m_deviceResources = std::make_unique<DX::DeviceResources>();
     m_deviceResources->RegisterDeviceNotify(this);
 	GameContext().Register<DX::DeviceResources>(m_deviceResources);
 }
 
+/// <summary>
+/// デストラクタ
+/// </summary>
 Game::~Game()
 {
+	
 }
 
 // Initialize the Direct3D resources required to run.
@@ -52,16 +61,11 @@ void Game::Initialize(HWND window, int width, int height)
 	GameContext().Register<DirectX::CommonStates>(m_state);
 
 	GameContext().Register<DX::StepTimer>(&m_timer);
-    // TODO: Change the timer settings if you want something other than the default variable timestep mode.
-    // e.g. for 60 FPS fixed timestep update logic, call:
-    /*
-    m_timer.SetFixedTimeStep(true);
-    m_timer.SetTargetElapsedSeconds(1.0 / 60);
-    */
+	// TODO: デフォルト変数timestepモード以外のものが必要な場合タイマー設定を変更する
+	// 例: 60FPS固定タイムステップ更新ロジックに対しては以下を呼び出す
 
-	
-	
-
+	m_timer.SetFixedTimeStep(true);
+	m_timer.SetTargetElapsedSeconds(1.0 / 60.0);
 	
 }
 
