@@ -14,6 +14,9 @@
     <Filter Include="Game">
       <UniqueIdentifier>{d96ddd93-eb0e-4f7d-9425-e7425a9308c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{a78feb1e-083d-4395-98b8-d7ac669ab33d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\pch\pch.h">
@@ -25,8 +28,20 @@
     <ClInclude Include="Sources\Framework\StepTimer.h">
       <Filter>FrameWork</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Game\MyGame.h">
-      <Filter>Game</Filter>
+    <ClInclude Include="Sources\Framework\Game.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Utils\GameContext.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Utils\Projection.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Utils\ServiceLocator.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Utils\Utilities.h">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -37,8 +52,8 @@
     <ClCompile Include="Sources\Framework\DeviceResources.cpp">
       <Filter>FrameWork</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Game\MyGame.cpp">
-      <Filter>Game</Filter>
+    <ClCompile Include="Sources\Framework\Game.cpp">
+      <Filter>FrameWork</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,9 +65,6 @@
     <Manifest Include="settings.manifest">
       <Filter>Assets</Filter>
     </Manifest>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Game\resource.rc" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Resources\FBX\floor.FBX">
@@ -76,5 +88,8 @@
     <MeshContentTask Include="Resources\FBX\Building1.FBX">
       <Filter>Assets</Filter>
     </MeshContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc" />
   </ItemGroup>
 </Project>
