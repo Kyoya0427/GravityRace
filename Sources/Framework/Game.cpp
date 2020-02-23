@@ -8,7 +8,8 @@
 #include "Game.h"
 
 #include <random>
-#include <Keyboard.h>
+
+#include <Game\MyGame.h>
 
 #include <Utils\GameContext.h>
 #include <Utils\Projection.h>
@@ -42,17 +43,10 @@ Game::~Game()
 // Initialize the Direct3D resources required to run.
 void Game::Initialize(HWND window, int width, int height)
 {
-	// マウスの作成
-	m_mouse = std::make_unique<Mouse>();
-	m_mouse->SetWindow(window);
-	//キーボードの作成
-	m_keyboard = std::make_unique<Keyboard>();
-
+	//ウィンドウ設定
     m_deviceResources->SetWindow(window, width, height);
-
     m_deviceResources->CreateDeviceResources();
     CreateDeviceDependentResources();
-
     m_deviceResources->CreateWindowSizeDependentResources();
     CreateWindowSizeDependentResources();
 
@@ -60,7 +54,14 @@ void Game::Initialize(HWND window, int width, int height)
 	m_state = std::make_unique<CommonStates>(m_deviceResources->GetD3DDevice());
 	GameContext().Register<DirectX::CommonStates>(m_state);
 
-	GameContext().Register<DX::StepTimer>(&m_timer);
+	// マウスの作成
+	m_mouse = std::make_unique<Mouse>();
+	m_mouse->SetWindow(window);
+	//キーボードの作成
+	m_keyboard = std::make_unique<Keyboard>();
+
+	m_myGame = std::make_unique<MyGame>();
+	m_myGame->Initialize();
 	// TODO: デフォルト変数timestepモード以外のものが必要な場合タイマー設定を変更する
 	// 例: 60FPS固定タイムステップ更新ロジックに対しては以下を呼び出す
 
@@ -84,16 +85,15 @@ void Game::Tick()
 // Updates the world.
 void Game::Update(DX::StepTimer const& timer)
 {
-    float elapsedTime = float(timer.GetElapsedSeconds());
-
     // TODO: Add your game logic here.
-
 
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 	if (keyState.IsKeyDown(DirectX::Keyboard::Keys::Escape))
 	{
 		ExitGame();
 	}
+
+	m_myGame->Update(timer);
 }
 #pragma endregion
 
@@ -115,7 +115,7 @@ void Game::Render()
     // TODO: Add your rendering code here.
     context;
 
-
+	m_myGame->Render(m_timer);
 
     m_deviceResources->PIXEndEvent();
 
@@ -215,21 +215,8 @@ void Game::CreateWindowSizeDependentResources()
     // TODO: Initialize windows-size dependent objects here.
 
 	// ウインドウサイズからアスペクト比を算出する
-	RECT size = m_deviceResources->GetOutputSize();
-	float aspectRatio = float(size.right) / float(size.bottom);
-
-	// 画角を設定
-	float fovAngleY = XMConvertToRadians(45.0f);
-
-	// 射影行列を作成する
-	m_projection = std::make_unique<Projection>();
-	m_projection->SetPerspectiveFieldOfView(
-		fovAngleY,
-		aspectRatio,
-		0.01f,
-		10000.0f
-	);
-	GameContext().Register<Projection>(m_projection);
+	
+	
 }
 
 void Game::OnDeviceLost()
