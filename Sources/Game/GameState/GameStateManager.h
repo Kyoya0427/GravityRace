@@ -1,6 +1,6 @@
 //======================================================
-// File Name		: GameStateManager.h
-// Summary		: ゲームステイトマネジャー
+// File Name	: GameStateManager.h
+// Summary	: ゲームステイトマネジャー
 // Author		: Kyoya Sakamoto
 //======================================================
 #pragma once
@@ -9,6 +9,7 @@
 #include <memory>
 #include <deque>
 #include <unordered_map>
+#include <Framework\StepTimer.h>
 
 class IGameState;
 
@@ -33,7 +34,7 @@ private:
 	using IGameStateFactoryList = std::unordered_map<GameStateID, IGameStateFactory>;
 
 
-public://コンストラクタ　デストラクタ
+public:
 	GameStateManager();
 	~GameStateManager();
 
@@ -43,8 +44,8 @@ private:
 
 public:
 	
-	void Update(float elapsedTime);
-	void Render();
+	void Update(const DX::StepTimer& timer);
+	void Render(const DX::StepTimer& timer);
 
 public:
 	template<typename State>
@@ -61,7 +62,7 @@ public:
 private:
 	void ChangeState();
 
-private://メンバー変数
+private:
 	IGameStateFactoryList m_stateFactories;
 	IGameStateStack       m_states;
 	int                   m_popCount;
@@ -71,7 +72,7 @@ private://メンバー変数
 
 template<typename State>
 /// <summary>
-/// ステイト生成
+/// ステイト作成
 /// </summary>
 /// <returns></returns>
  GameStateManager::IGameStatePtr GameStateManager::CrateState()
@@ -83,9 +84,9 @@ template<typename State>
 
 template<typename State>
 /// <summary>
-/// ゲームステイトを登録
+///  ステイトを登録
 /// </summary>
-/// <param name="id">ステイトID</param>
+/// <param name="id"></param>
  void GameStateManager::RegisterState(const GameStateID id)
 {
 	 m_stateFactories.emplace(std::make_pair(id, CrateState<State>));

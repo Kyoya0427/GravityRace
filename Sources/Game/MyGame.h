@@ -1,6 +1,6 @@
 //======================================================
-// File Name	: MyGame.cpp
-// Summary	: �}�C�Q�[��
+// File Name	: MyGame.h
+// Summary	: マイゲーム
 // Author		: Kyoya Sakamoto
 //======================================================
 #pragma once
@@ -11,18 +11,27 @@
 #include <Framework\Game.h>
 #include <Utils\Projection.h>
 
+class GameStateManager;
+
 class MyGame 
 {
  public:
-	 //�R���X�g���N�^
+	 //コンストラクタ
 	 MyGame();
+	 //デストラクタ
 	 ~MyGame();
 
+ public:
+	 //初期化
 	 void Initialize();
+	 //更新
 	 void Update(const DX::StepTimer& timer);
+	 //描画
 	 void Render(const DX::StepTimer& timer);
+	 //終了
 	 void Finalize();
 
  private:
-
+	 //ステイトマネジャー
+	 std::unique_ptr<GameStateManager>          m_stateManager;
 };

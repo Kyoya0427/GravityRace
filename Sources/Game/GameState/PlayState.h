@@ -13,11 +13,7 @@
 
 
 
-class GridFloor;
-class GameObjectManager;
-class CollisionManager;
-class EnergyEffectManager;
-class ConcentrationLineEffectManager;
+
 
 class PlayState :public IGameState
 {
@@ -29,18 +25,12 @@ public:
 
 public:
 	void Initialize() override;
-	void Update(float elapsedTime)     override;
-	void Render()     override;
+	void Update(const DX::StepTimer& timer)     override;
+	void Render(const DX::StepTimer& timer)     override;
 	void Finalize()   override;
 
 private:
 	
-	std::unique_ptr<DirectX::Model>     m_builModel[3];
-
-	std::unique_ptr<GameObjectManager>  m_gameObjectManager;
-	std::unique_ptr<CollisionManager>   m_collisionManager;
-
-	EnergyEffectManager*                m_effectManager;
-	ConcentrationLineEffectManager *    m_concentrationLineEffectManager;
+	
 };
 

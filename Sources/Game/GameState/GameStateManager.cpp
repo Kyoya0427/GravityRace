@@ -1,16 +1,14 @@
 //======================================================
-// File Name		: GameStateManager.cpp
-// Summary		: ゲームステイトマネジャー
+// File Name	: GameStateManager.cpp
+// Summary	: ゲームステイトマネジャー
 // Author		: Kyoya Sakamoto
 //======================================================
-#include <pch.h>
-
-#include "GameStateManager.h"
-
 #include <cassert>
 
+#include "GameStateManager.h"
 #include "IGameState.h"
-#include <Game\Common\Utilities.h>
+
+#include <Utils\Utilities.h>
 
 /// <summary>
 /// コンストラクタ
@@ -34,7 +32,7 @@ GameStateManager::~GameStateManager()
 /// 更新
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void GameStateManager::Update(float elapsedTime)
+void GameStateManager::Update(const DX::StepTimer& timer)
 {
 	if (m_popCount > 0)
 	{
@@ -52,20 +50,20 @@ void GameStateManager::Update(float elapsedTime)
 	}
 
 	assert(m_states.size() > 0 && "There is no active state.");
-	m_states.back()->Update(elapsedTime);
+	m_states.back()->Update(timer);
 }
 
 
 /// <summary>
 /// 描画
 /// </summary>
-void GameStateManager::Render()
+void GameStateManager::Render(const DX::StepTimer& timer)
 {
 	assert(m_states.size() > 0 && "There is no active state.");
 
 	for (const IGameStatePtr& state : m_states)
 	{
-		state->Render();
+		state->Render(timer);
 	}
 }
 

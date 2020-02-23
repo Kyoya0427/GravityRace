@@ -20,8 +20,8 @@ public:
 
 public:
 	void Initialize() override;
-	void Update(float elapsedTime)     override;
-	void Render()     override;
+	void Update(const DX::StepTimer& timer)     override;
+	void Render(const DX::StepTimer& timer)     override;
 	void Finalize()   override;
 private:
 	float m_count;

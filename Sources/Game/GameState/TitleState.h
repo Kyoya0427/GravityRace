@@ -9,7 +9,7 @@
 #include <SpriteBatch.h>
 #include <SimpleMath.h>	
 #include <Keyboard.h>
-#include <UI\Blink.h>
+//#include <UI\Blink.h>
 
 class TitleState :public IGameState
 {
@@ -21,8 +21,8 @@ public:
 
 public:
 	void Initialize() override;
-	void Update(float elapsedTime)     override;
-	void Render()     override;
+	void Update(const DX::StepTimer& timer)     override;
+	void Render(const DX::StepTimer& timer)     override;
 	void Finalize()   override;
 	void SelectPartsMode(bool flag);
 private:
@@ -35,7 +35,7 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_pushTexture;
 	DirectX::SimpleMath::Vector2                     m_pushPos;
 
-	std::unique_ptr<Blink>                           m_blink;
-	bool                                             m_blinkFlag;
+	//std::unique_ptr<Blink>                           m_blink;
+	//bool                                             m_blinkFlag;
 };
 

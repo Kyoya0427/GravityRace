@@ -4,6 +4,7 @@
 // Author		 : Kyoya Sakamoto
 //======================================================
 #pragma once
+#include <Framework\StepTimer.h>
 
 class IGameState
 {
@@ -15,7 +16,7 @@ public:
 
 public:
 	virtual void Initialize()  = 0;
-	virtual void Update(float elapsedTime)      = 0;
-	virtual void Render()      = 0;
+	virtual void Update(const DX::StepTimer& timer)      = 0;
+	virtual void Render(const DX::StepTimer& timer)      = 0;
 	virtual void Finalize()    = 0;
 };

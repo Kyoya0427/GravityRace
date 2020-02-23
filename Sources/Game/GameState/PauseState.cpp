@@ -10,9 +10,7 @@
 
 #include <Keyboard.h>
 
-#include <Game\Source\DebugFont.h>
-
-#include <Game\Common\GameContext.h>
+#include <Utils\GameContext.h>
 
 
 /// <summary>
@@ -39,9 +37,9 @@ void PauseState::Initialize()
 /// アップデート
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void PauseState::Update(float elapsedTime)
+void PauseState::Update(const DX::StepTimer& timer)
 {
-	elapsedTime;
+	timer;
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 	if (keyState.IsKeyDown(DirectX::Keyboard::Z))
 	{
@@ -59,7 +57,7 @@ void PauseState::Update(float elapsedTime)
 /// <summary>
 /// レンダー
 /// </summary>
-void PauseState::Render()
+void PauseState::Render(const DX::StepTimer& timer)
 {
 }
 /// <summary>

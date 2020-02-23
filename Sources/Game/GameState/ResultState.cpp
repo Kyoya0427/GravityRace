@@ -3,19 +3,14 @@
 // Summary	: リザルトステイト
 // Author		: Kyoya Sakamoto
 //======================================================
-#include <pch.h>
-
-#include "ResultState.h"
-
-#include <Game\Source\DebugFont.h>
-
-#include <Game\Common\GameContext.h>
-
-#include "GameStateManager.h"
 
 #include <WICTextureLoader.h>
 
-#include <Common\DeviceResources.h>
+#include "ResultState.h"
+#include "GameStateManager.h"
+
+#include <Utils\GameContext.h>
+#include <Framework\DeviceResources.h>
 
 /// <summary>
 /// コンストラクタ
@@ -47,7 +42,7 @@ void ResultState::Initialize()
 /// デストラクタ
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void ResultState::Update(float elapsedTime)
+void ResultState::Update(const DX::StepTimer& timer)
 {
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 	m_keyTracker.Update(keyState);
@@ -64,7 +59,7 @@ void ResultState::Update(float elapsedTime)
 /// <summary>
 ///描画
 /// </summary>
-void ResultState::Render()
+void ResultState::Render(const DX::StepTimer& timer)
 {
 	m_spriteBatch->Begin();
 	m_spriteBatch->Draw(m_texture.Get(), m_pos);
