@@ -17,6 +17,9 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{a78feb1e-083d-4395-98b8-d7ac669ab33d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\GameState">
+      <UniqueIdentifier>{0a1ab423-df4e-49e9-b9b0-f2a9af41743b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\pch\pch.h">
@@ -46,6 +49,24 @@
     <ClInclude Include="Sources\Game\MyGame.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Game\GameState\GameStateManager.h">
+      <Filter>Game\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\GameState\IGameState.h">
+      <Filter>Game\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\GameState\PauseState.h">
+      <Filter>Game\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\GameState\PlayState.h">
+      <Filter>Game\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\GameState\ResultState.h">
+      <Filter>Game\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\GameState\TitleState.h">
+      <Filter>Game\GameState</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -60,6 +81,21 @@
     </ClCompile>
     <ClCompile Include="Sources\Game\MyGame.cpp">
       <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\GameState\GameStateManager.cpp">
+      <Filter>Game\GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\GameState\PauseState.cpp">
+      <Filter>Game\GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\GameState\PlayState.cpp">
+      <Filter>Game\GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\GameState\ResultState.cpp">
+      <Filter>Game\GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\GameState\TitleState.cpp">
+      <Filter>Game\GameState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

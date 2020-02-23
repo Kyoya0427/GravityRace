@@ -1,6 +1,6 @@
 //======================================================
 // File Name	: MyGame.cpp
-// Summary	: ƒ}ƒCƒQ[ƒ€
+// Summary	: ï¿½}ï¿½Cï¿½Qï¿½[ï¿½ï¿½
 // Author		: Kyoya Sakamoto
 //======================================================
 #pragma once
@@ -14,7 +14,7 @@
 class MyGame 
 {
  public:
-	 //ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 //ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	 MyGame();
 	 ~MyGame();
 
@@ -24,11 +24,5 @@ class MyGame
 	 void Finalize();
 
  private:
-
-
- private:
-	 
-	 
-	
 
 };
