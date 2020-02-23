@@ -4,6 +4,9 @@
 
 #include <Framework\Game.h>
 
+#include <Keyboard.h>
+#include <Mouse.h>
+
 using namespace DirectX;
 
 namespace

@@ -43,6 +43,9 @@
     <ClInclude Include="Sources\Utils\Utilities.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Game\MyGame.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -54,6 +57,9 @@
     </ClCompile>
     <ClCompile Include="Sources\Framework\Game.cpp">
       <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\MyGame.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

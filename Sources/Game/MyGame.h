@@ -1,6 +1,15 @@
+//======================================================
+// File Name	: MyGame.cpp
+// Summary	: É}ÉCÉQÅ[ÉÄ
+// Author		: Kyoya Sakamoto
+//======================================================
 #pragma once
 
+#include <SimpleMath.h>
+
+
 #include <Framework\Game.h>
+#include <Utils\Projection.h>
 
 class MyGame 
 {
@@ -13,4 +22,13 @@ class MyGame
 	 void Update(const DX::StepTimer& timer);
 	 void Render(const DX::StepTimer& timer);
 	 void Finalize();
+
+ private:
+
+
+ private:
+	 
+	 
+	
+
 };

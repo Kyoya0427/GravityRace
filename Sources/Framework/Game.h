@@ -5,36 +5,34 @@
 //======================================================
 #pragma once
 
-#include <CommonStates.h>
-#include <SimpleMath.h>
 #include <SpriteBatch.h>
+#include <CommonStates.h>
 #include <Keyboard.h>
 #include <Mouse.h>
 
 #include "DeviceResources.h"
 #include "StepTimer.h"
-#include <Utils\Projection.h>
 
+class MyGame;
 
-// A basic game implementation that creates a D3D11 device and
-// provides a game loop.
+// ゲームループを提供するゲームクラス
 class Game : public DX::IDeviceNotify
 {
 public:
 
     Game() noexcept(false);
 	~Game();
-    // Initialization and management
+    //初期化
     void Initialize(HWND window, int width, int height);
 
-    // Basic game loop
+    //ゲームループ
     void Tick();
 
     // IDeviceNotify
     virtual void OnDeviceLost() override;
     virtual void OnDeviceRestored() override;
 
-    // Messages
+    //メッセージ
     void OnActivated();
     void OnDeactivated();
     void OnSuspending();
@@ -42,7 +40,7 @@ public:
     void OnWindowMoved();
     void OnWindowSizeChanged(int width, int height);
 
-    // Properties
+    //プロパティ
     void GetDefaultSize( int& width, int& height ) const;
 	void ChangeFullscreen(BOOL flag);
 
@@ -56,20 +54,18 @@ private:
     void CreateDeviceDependentResources();
     void CreateWindowSizeDependentResources();
 
-    // Device resources.
-    std::unique_ptr<DX::DeviceResources>    m_deviceResources;
-
-    // Rendering loop timer.
-    DX::StepTimer                           m_timer;
-	// 射影行列
-	std::unique_ptr<Projection>             m_projection;
-	// コモンステート
-	std::unique_ptr<DirectX::CommonStates>	m_state;
+    //デバイスリソーシーズ
+    std::unique_ptr<DX::DeviceResources>        m_deviceResources;
+	//タイマー
+	DX::StepTimer                               m_timer;
 	//スプライトバッチ
-	std::unique_ptr<DirectX::SpriteBatch>   m_spriteBatch;
+	std::unique_ptr<DirectX::SpriteBatch>       m_spriteBatch;
+	// コモンステート
+	std::unique_ptr<DirectX::CommonStates>	    m_state;
 	// マウス
-	std::unique_ptr<DirectX::Mouse>			m_mouse;
+	std::unique_ptr<DirectX::Mouse>			    m_mouse;
 	//キーボード
-	std::unique_ptr<DirectX::Keyboard>      m_keyboard;
-
+	std::unique_ptr<DirectX::Keyboard>          m_keyboard;
+	//マイゲーム
+	std::unique_ptr<MyGame>                     m_myGame;
 };
