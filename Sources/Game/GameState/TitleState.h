@@ -20,11 +20,19 @@ public:
 	virtual ~TitleState();
 
 public:
+	//‰Šú‰»
 	void Initialize() override;
-	void Update(const DX::StepTimer& timer)     override;
-	void Render(const DX::StepTimer& timer)     override;
-	void Finalize()   override;
+	//XV
+	void Update(const DX::StepTimer& timer) override;
+	//•`‰æ
+	void Render(const DX::StepTimer& timer) override;
+	//I—¹
+	void Finalize() override;
+
+public:
+
 	void SelectPartsMode(bool flag);
+
 private:
 
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texture;

@@ -40,7 +40,12 @@ Game::~Game()
 	
 }
 
-// Initialize the Direct3D resources required to run.
+/// <summary>
+/// 初期化
+/// </summary>
+/// <param name="window"></param>
+/// <param name="width"></param>
+/// <param name="height"></param>
 void Game::Initialize(HWND window, int width, int height)
 {
 	//ウィンドウ設定
@@ -71,7 +76,9 @@ void Game::Initialize(HWND window, int width, int height)
 }
 
 #pragma region Frame Update
-// Executes the basic game loop.
+/// <summary>
+/// ゲームループ
+/// </summary>
 void Game::Tick()
 {
     m_timer.Tick([&]()
@@ -82,11 +89,13 @@ void Game::Tick()
     Render();
 }
 
-// Updates the world.
+/// <summary>
+/// 更新
+/// </summary>
+/// <param name="timer"></param>
 void Game::Update(DX::StepTimer const& timer)
 {
-    // TODO: Add your game logic here.
-
+	//エスケープキーで終了しる処理
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 	if (keyState.IsKeyDown(DirectX::Keyboard::Keys::Escape))
 	{
@@ -98,7 +107,9 @@ void Game::Update(DX::StepTimer const& timer)
 #pragma endregion
 
 #pragma region Frame Render
-// Draws the scene.
+/// <summary>
+/// 描画
+/// </summary>
 void Game::Render()
 {
     // Don't try to render anything before the first Update.
@@ -112,23 +123,23 @@ void Game::Render()
     m_deviceResources->PIXBeginEvent(L"Render");
     auto context = m_deviceResources->GetD3DDeviceContext();
 
-    // TODO: Add your rendering code here.
+    // TODO:これより下に記入
     context;
 
 	m_myGame->Render(m_timer);
 
     m_deviceResources->PIXEndEvent();
 
-    // Show the new frame.
+    // 新しいフレームを表示します。
     m_deviceResources->Present();
 }
 
-// Helper method to clear the back buffers.
+// バックバッファーをクリアするヘルパーメソッド
 void Game::Clear()
 {
     m_deviceResources->PIXBeginEvent(L"Clear");
 
-    // Clear the views.
+    // ビューをクリアします
     auto context = m_deviceResources->GetD3DDeviceContext();
     auto renderTarget = m_deviceResources->GetRenderTargetView();
     auto depthStencil = m_deviceResources->GetDepthStencilView();
@@ -137,7 +148,7 @@ void Game::Clear()
     context->ClearDepthStencilView(depthStencil, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
     context->OMSetRenderTargets(1, &renderTarget, depthStencil);
 
-    // Set the viewport.
+    // ビューポートを設定します。
     auto viewport = m_deviceResources->GetScreenViewport();
     context->RSSetViewports(1, &viewport);
 
@@ -146,27 +157,26 @@ void Game::Clear()
 #pragma endregion
 
 #pragma region Message Handlers
-// Message handlers
+// メッセージハンドラー
 void Game::OnActivated()
 {
-    // TODO: Game is becoming active window.
+    // TODO: ゲームはアクティブウィンドウになりつつあります。
 }
 
 void Game::OnDeactivated()
 {
-    // TODO: Game is becoming background window.
+	// TODO: ゲームは背景ウィンドウになりつつあります。
 }
-
 void Game::OnSuspending()
 {
-    // TODO: Game is being power-suspended (or minimized).
+    // TODO: ゲームの電源が一時停止（または最小化）されています。
 }
 
 void Game::OnResuming()
 {
     m_timer.ResetElapsedTime();
 
-    // TODO: Game is being power-resumed (or returning from minimize).
+    // TODO: ゲームの電源が再開されています（または最小化から復帰しています）。
 }
 
 void Game::OnWindowMoved()
@@ -182,13 +192,13 @@ void Game::OnWindowSizeChanged(int width, int height)
 
     CreateWindowSizeDependentResources();
 
-    // TODO: Game window is being resized.
+    // TODO: ゲームウィンドウのサイズが変更されています。
 }
 
-// Properties
+// プロパティ
 void Game::GetDefaultSize(int& width, int& height) const
 {
-    // TODO: Change to desired default window size (note minimum size is 320x200).
+    // TODO: 目的のデフォルトのウィンドウサイズに変更します（最小サイズは320x200であることに注意してください）。
     width = 1280;
     height = 720;
 }
@@ -200,19 +210,19 @@ void Game::ChangeFullscreen(BOOL flag)
 #pragma endregion
 
 #pragma region Direct3D Resources
-// These are the resources that depend on the device.
+// これらは、デバイスに依存するリソースです。
 void Game::CreateDeviceDependentResources()
 {
     auto device = m_deviceResources->GetD3DDevice();
 
-    // TODO: Initialize device dependent objects here (independent of window size).
+    // TODO: ここでデバイス依存オブジェクトを初期化します（ウィンドウサイズに依存しません）。
     device;
 }
 
-// Allocate all memory resources that change on a window SizeChanged event.
+// ウィンドウのSizeChangedイベントで変更されるすべてのメモリリソースを割り当てます。
 void Game::CreateWindowSizeDependentResources()
 {
-    // TODO: Initialize windows-size dependent objects here.
+    // TODO: ここでウィンドウサイズに依存するオブジェクトを初期化します。
 
 	// ウインドウサイズからアスペクト比を算出する
 	
@@ -221,7 +231,7 @@ void Game::CreateWindowSizeDependentResources()
 
 void Game::OnDeviceLost()
 {
-    // TODO: Add Direct3D resource cleanup here.
+    // TODO:ここにDirect3Dリソースのクリーンアップを追加します。
 }
 
 void Game::OnDeviceRestored()

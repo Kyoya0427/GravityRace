@@ -28,13 +28,13 @@ PauseState::~PauseState()
 {
 }
 /// <summary>
-/// イニシャライズ
+/// 初期化
 /// </summary>
 void PauseState::Initialize()
 {
 }
 /// <summary>
-/// アップデート
+/// 更新
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
 void PauseState::Update(const DX::StepTimer& timer)
@@ -55,13 +55,13 @@ void PauseState::Update(const DX::StepTimer& timer)
 	}
 }
 /// <summary>
-/// レンダー
+/// 描画
 /// </summary>
 void PauseState::Render(const DX::StepTimer& timer)
 {
 }
 /// <summary>
-/// ファイナライズ
+/// 終了
 /// </summary>
 void PauseState::Finalize()
 {

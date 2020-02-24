@@ -20,6 +20,18 @@
     <Filter Include="Game\GameState">
       <UniqueIdentifier>{0a1ab423-df4e-49e9-b9b0-f2a9af41743b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\Buil">
+      <UniqueIdentifier>{847f6879-c410-49b7-ae83-325a84b24b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\SkyDome">
+      <UniqueIdentifier>{a7defd03-2d76-4f4e-8162-9bd77b8910cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Player">
+      <UniqueIdentifier>{75880de5-6355-4de8-a911-758324f9427f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Ground">
+      <UniqueIdentifier>{c6fd99da-8b40-49d5-9a13-6f2eb71b72ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\pch\pch.h">
@@ -109,26 +121,23 @@
     </Manifest>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Resources\FBX\floor.FBX">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Resources\FBX\Ground.FBX">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Resources\FBX\Player.FBX">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Resources\FBX\SkyDome.FBX">
-      <Filter>Assets</Filter>
+    <MeshContentTask Include="Resources\FBX\Building1.FBX">
+      <Filter>Assets\Buil</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Resources\FBX\Building2.FBX">
-      <Filter>Assets</Filter>
+      <Filter>Assets\Buil</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Resources\FBX\Building3.FBX">
-      <Filter>Assets</Filter>
+      <Filter>Assets\Buil</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Resources\FBX\Building1.FBX">
-      <Filter>Assets</Filter>
+    <MeshContentTask Include="Resources\FBX\SkyDome.FBX">
+      <Filter>Assets\SkyDome</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\FBX\Player.FBX">
+      <Filter>Assets\Player</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\FBX\Ground.FBX">
+      <Filter>Assets\Ground</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>

@@ -222,7 +222,6 @@
     <MeshContentTask Include="Resources\FBX\Building1.FBX" />
     <MeshContentTask Include="Resources\FBX\Building2.FBX" />
     <MeshContentTask Include="Resources\FBX\Building3.FBX" />
-    <MeshContentTask Include="Resources\FBX\floor.FBX" />
     <MeshContentTask Include="Resources\FBX\Ground.FBX" />
     <MeshContentTask Include="Resources\FBX\Player.FBX" />
     <MeshContentTask Include="Resources\FBX\SkyDome.FBX" />

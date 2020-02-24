@@ -16,9 +16,13 @@ public:
 	virtual ~PauseState();
 
 public:
+	//‰Šú‰»
 	void Initialize() override;
+	//XV
 	void Update(const DX::StepTimer& timer) override;
+	//•`‰æ
 	void Render(const DX::StepTimer& timer) override;
+	//I—¹
 	void Finalize() override;
 };
 

@@ -43,19 +43,26 @@ void PlayState::Initialize()
 }
 
 /// <summary>
-/// �A�b�v�f�[�g
+/// 更新
 /// </summary>
-/// <param name="elapsedTime">�^�C�}�[</param>
+/// <param name="elapsedTime">タイマー</param>
 void PlayState::Update(const DX::StepTimer& timer)
 {
 	
 }
 
+/// <summary>
+/// 描画
+/// </summary>
+/// <param name="timer"></param>
 void PlayState::Render(const DX::StepTimer& timer)
 {
 	
 }
 
+/// <summary>
+/// 終了
+/// </summary>
 void PlayState::Finalize()
 {
 

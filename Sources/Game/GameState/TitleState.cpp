@@ -82,7 +82,7 @@ void TitleState::Render(const DX::StepTimer& timer)
 }
 
 /// <summary>
-/// ファイナライズ
+/// 終了
 /// </summary>
 void TitleState::Finalize()
 {

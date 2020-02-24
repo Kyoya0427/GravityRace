@@ -19,9 +19,11 @@ class MyGame;
 class Game : public DX::IDeviceNotify
 {
 public:
-
+	//コンストラクタ
     Game() noexcept(false);
+	//デストラクタ
 	~Game();
+public:
     //初期化
     void Initialize(HWND window, int width, int height);
 
@@ -45,13 +47,15 @@ public:
 	void ChangeFullscreen(BOOL flag);
 
 private:
-
+	//更新
     void Update(DX::StepTimer const& timer);
-    void Render();
-
+    //描画
+	void Render();
+	//画面をクリアする
     void Clear();
-
+	//デバイスを生成
     void CreateDeviceDependentResources();
+	//ウィンドウ
     void CreateWindowSizeDependentResources();
 
     //デバイスリソーシーズ

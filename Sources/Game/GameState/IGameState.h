@@ -15,8 +15,12 @@ public:
 	virtual ~IGameState() = default;
 
 public:
-	virtual void Initialize()  = 0;
-	virtual void Update(const DX::StepTimer& timer)      = 0;
-	virtual void Render(const DX::StepTimer& timer)      = 0;
-	virtual void Finalize()    = 0;
+	//‰Šú‰»
+	virtual void Initialize() = 0;
+	//XV
+	virtual void Update(const DX::StepTimer& timer) = 0;
+	//•`‰æ
+	virtual void Render(const DX::StepTimer& timer) = 0;
+	//I—¹
+	virtual void Finalize() = 0;
 };
