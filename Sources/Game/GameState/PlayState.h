@@ -1,5 +1,5 @@
 //======================================================
-// File Name	 : play.h
+// File Name	 : PlayState.h
 // Summary	 : プレイステイト
 // Author		 : Kyoya Sakamoto
 //======================================================
@@ -24,10 +24,14 @@ public:
 	virtual ~PlayState();
 
 public:
+	//初期化
 	void Initialize() override;
-	void Update(const DX::StepTimer& timer)     override;
-	void Render(const DX::StepTimer& timer)     override;
-	void Finalize()   override;
+	//更新
+	void Update(const DX::StepTimer& timer) override;
+	//描画
+	void Render(const DX::StepTimer& timer) override;
+	//終了
+	void Finalize() override;
 
 private:
 	

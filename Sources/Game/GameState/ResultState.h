@@ -19,10 +19,14 @@ public:
 	virtual ~ResultState();
 
 public:
+	//‰Šú‰»
 	void Initialize() override;
-	void Update(const DX::StepTimer& timer)     override;
-	void Render(const DX::StepTimer& timer)     override;
-	void Finalize()   override;
+	//XV
+	void Update(const DX::StepTimer& timer) override;
+	//•`‰æ
+	void Render(const DX::StepTimer& timer) override;
+	//I—¹
+	void Finalize() override;
 private:
 	float m_count;
 

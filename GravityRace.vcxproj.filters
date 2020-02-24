@@ -32,6 +32,24 @@
     <Filter Include="Assets\Ground">
       <UniqueIdentifier>{c6fd99da-8b40-49d5-9a13-6f2eb71b72ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Camera">
+      <UniqueIdentifier>{e344c6c0-4079-4a81-ad37-c60bcc77fd34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Collider">
+      <UniqueIdentifier>{ceba7b66-adc0-4175-aad6-1355e70e7486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{e67eb47d-5ac9-49cb-8de2-14c49fcc07c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Player">
+      <UniqueIdentifier>{da459ed2-2a11-4e3a-8e39-7f15fac82885}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Stage">
+      <UniqueIdentifier>{d54480c0-5b3d-419c-990e-89ce49330530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\UI">
+      <UniqueIdentifier>{c4bb03df-f2d4-4a33-99fc-c39317ab7057}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\pch\pch.h">
@@ -79,6 +97,72 @@
     <ClInclude Include="Sources\Game\GameState\TitleState.h">
       <Filter>Game\GameState</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Game\Camera\TPSCamera.h">
+      <Filter>Game\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Collider\BoxCollider.h">
+      <Filter>Game\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Collider\BoxShape.h">
+      <Filter>Game\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Collider\Collider.h">
+      <Filter>Game\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Collider\CollisionManager.h">
+      <Filter>Game\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Collider\LineShape.h">
+      <Filter>Game\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Collider\MoveBoxCollider.h">
+      <Filter>Game\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Collider\RaycastHit.h">
+      <Filter>Game\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Object\GameObject.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Object\GameObjectManager.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\Agravity.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\Floating.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\IPlayer.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\Jumping.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\Player.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\Running.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\Standing.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Stage\Building.h">
+      <Filter>Game\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Stage\CheckPoint.h">
+      <Filter>Game\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Stage\Ground.h">
+      <Filter>Game\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Stage\SkyDome.h">
+      <Filter>Game\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\UI\Blink.h">
+      <Filter>Game\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -108,6 +192,60 @@
     </ClCompile>
     <ClCompile Include="Sources\Game\GameState\TitleState.cpp">
       <Filter>Game\GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Camera\TPSCamera.cpp">
+      <Filter>Game\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Collider\BoxCollider.cpp">
+      <Filter>Game\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Collider\Collider.cpp">
+      <Filter>Game\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Collider\CollisionManager.cpp">
+      <Filter>Game\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Collider\MoveBoxCollider.cpp">
+      <Filter>Game\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Object\GameObject.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Object\GameObjectManager.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\Agravity.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\Floating.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\Jumping.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\Player.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\Running.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\Standing.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Stage\Building.cpp">
+      <Filter>Game\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Stage\CheckPoint.cpp">
+      <Filter>Game\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Stage\Ground.cpp">
+      <Filter>Game\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Stage\SkyDome.cpp">
+      <Filter>Game\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\UI\Blink.cpp">
+      <Filter>Game\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

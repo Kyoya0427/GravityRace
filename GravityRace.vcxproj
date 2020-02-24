@@ -91,7 +91,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -187,6 +187,14 @@
     <ClInclude Include="Sources\Framework\DeviceResources.h" />
     <ClInclude Include="Sources\Framework\Game.h" />
     <ClInclude Include="Sources\Framework\StepTimer.h" />
+    <ClInclude Include="Sources\Game\Camera\TPSCamera.h" />
+    <ClInclude Include="Sources\Game\Collider\BoxCollider.h" />
+    <ClInclude Include="Sources\Game\Collider\BoxShape.h" />
+    <ClInclude Include="Sources\Game\Collider\Collider.h" />
+    <ClInclude Include="Sources\Game\Collider\CollisionManager.h" />
+    <ClInclude Include="Sources\Game\Collider\LineShape.h" />
+    <ClInclude Include="Sources\Game\Collider\MoveBoxCollider.h" />
+    <ClInclude Include="Sources\Game\Collider\RaycastHit.h" />
     <ClInclude Include="Sources\Game\GameState\GameStateManager.h" />
     <ClInclude Include="Sources\Game\GameState\IGameState.h" />
     <ClInclude Include="Sources\Game\GameState\PauseState.h" />
@@ -194,6 +202,20 @@
     <ClInclude Include="Sources\Game\GameState\ResultState.h" />
     <ClInclude Include="Sources\Game\GameState\TitleState.h" />
     <ClInclude Include="Sources\Game\MyGame.h" />
+    <ClInclude Include="Sources\Game\Object\GameObject.h" />
+    <ClInclude Include="Sources\Game\Object\GameObjectManager.h" />
+    <ClInclude Include="Sources\Game\Player\Agravity.h" />
+    <ClInclude Include="Sources\Game\Player\Floating.h" />
+    <ClInclude Include="Sources\Game\Player\IPlayer.h" />
+    <ClInclude Include="Sources\Game\Player\Jumping.h" />
+    <ClInclude Include="Sources\Game\Player\Player.h" />
+    <ClInclude Include="Sources\Game\Player\Running.h" />
+    <ClInclude Include="Sources\Game\Player\Standing.h" />
+    <ClInclude Include="Sources\Game\Stage\Building.h" />
+    <ClInclude Include="Sources\Game\Stage\CheckPoint.h" />
+    <ClInclude Include="Sources\Game\Stage\Ground.h" />
+    <ClInclude Include="Sources\Game\Stage\SkyDome.h" />
+    <ClInclude Include="Sources\Game\UI\Blink.h" />
     <ClInclude Include="Sources\pch\pch.h" />
     <ClInclude Include="Sources\Utils\GameContext.h" />
     <ClInclude Include="Sources\Utils\Projection.h" />
@@ -204,12 +226,30 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Sources\Framework\DeviceResources.cpp" />
     <ClCompile Include="Sources\Framework\Game.cpp" />
+    <ClCompile Include="Sources\Game\Camera\TPSCamera.cpp" />
+    <ClCompile Include="Sources\Game\Collider\BoxCollider.cpp" />
+    <ClCompile Include="Sources\Game\Collider\Collider.cpp" />
+    <ClCompile Include="Sources\Game\Collider\CollisionManager.cpp" />
+    <ClCompile Include="Sources\Game\Collider\MoveBoxCollider.cpp" />
     <ClCompile Include="Sources\Game\GameState\GameStateManager.cpp" />
     <ClCompile Include="Sources\Game\GameState\PauseState.cpp" />
     <ClCompile Include="Sources\Game\GameState\PlayState.cpp" />
     <ClCompile Include="Sources\Game\GameState\ResultState.cpp" />
     <ClCompile Include="Sources\Game\GameState\TitleState.cpp" />
     <ClCompile Include="Sources\Game\MyGame.cpp" />
+    <ClCompile Include="Sources\Game\Object\GameObject.cpp" />
+    <ClCompile Include="Sources\Game\Object\GameObjectManager.cpp" />
+    <ClCompile Include="Sources\Game\Player\Agravity.cpp" />
+    <ClCompile Include="Sources\Game\Player\Floating.cpp" />
+    <ClCompile Include="Sources\Game\Player\Jumping.cpp" />
+    <ClCompile Include="Sources\Game\Player\Player.cpp" />
+    <ClCompile Include="Sources\Game\Player\Running.cpp" />
+    <ClCompile Include="Sources\Game\Player\Standing.cpp" />
+    <ClCompile Include="Sources\Game\Stage\Building.cpp" />
+    <ClCompile Include="Sources\Game\Stage\CheckPoint.cpp" />
+    <ClCompile Include="Sources\Game\Stage\Ground.cpp" />
+    <ClCompile Include="Sources\Game\Stage\SkyDome.cpp" />
+    <ClCompile Include="Sources\Game\UI\Blink.cpp" />
     <ClCompile Include="Sources\pch\pch.cpp" />
   </ItemGroup>
   <ItemGroup>
