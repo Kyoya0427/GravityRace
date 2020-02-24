@@ -9,6 +9,7 @@
 #include <SimpleMath.h>
 #include <string>
 #include <functional>
+#include <Framework\StepTimer.h>
 
 #include <Game\Collider\Collider.h>
 #include <Game\Collider\RaycastHit.h>
@@ -52,9 +53,12 @@ public:
 
 
 public:
-	virtual void Update(float elapsedTime) = 0;
-	virtual void Render() = 0;
+	//更新
+	virtual void Update(const DX::StepTimer& timer) = 0;
+	//描画
+	virtual void Render(const DX::StepTimer& timer) = 0;
 
+	//ヒット後の処理
 	virtual void HitContact(GameObject* object, RaycastHit* raycastHit = nullptr) = 0;
 	
 
@@ -64,6 +68,7 @@ public:
 	bool IsValid() const;
 	bool IsInvalid() const;
 
+public:
 	//ゲット関数
 	const ObjectID GetTag() const;
 	const DirectX::SimpleMath::Vector3& GetPosition() const;
@@ -72,7 +77,8 @@ public:
 	const DirectX::SimpleMath::Vector3& GetSize() const;
 	const DirectX::SimpleMath::Vector3& GetAxis() const;
 	const float GetScale() const;
-	
+
+public:
 	//セット関数
 	void SetTag(const ObjectID tag);
 	void SetPosition(const DirectX::SimpleMath::Vector3& position);
@@ -81,6 +87,7 @@ public:
 	void SetSize(const DirectX::SimpleMath::Vector3& size);
 	void SetScale(const float scale);
 
+public:
 	//velとpos小分け
 	void SetPosX(const float posX) { m_position.x = posX; }
 	void SetPosY(const float posY) { m_position.y = posY; }

@@ -19,9 +19,9 @@ public:
 	//‰Šú‰»
 	void Initialize(Player* player) override;
 	//XV
-	void Update(float elapsedTime) override;
+	void Update(const DX::StepTimer& timer) override;
 	//•`‰æ
-	void Render() override;
+	void Render(const DX::StepTimer& timer) override;
 
 private:
 	void JumpingProcess();

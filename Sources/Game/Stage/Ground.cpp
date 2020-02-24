@@ -60,9 +60,9 @@ Ground::~Ground()
 /// 更新
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void Ground::Update(float elapsedTime)
+void Ground::Update(const DX::StepTimer& timer)
 {
-	elapsedTime;
+	timer;
 
 	m_collisionPos = m_position;
 	m_collider->SetCollisionCenter(m_collisionPos);
@@ -71,7 +71,7 @@ void Ground::Update(float elapsedTime)
 /// <summary>
 /// 描画
 /// </summary>
-void Ground::Render()
+void Ground::Render(const DX::StepTimer& timer)
 {
 	DX::DeviceResources* deviceResources = GameContext().Get<DX::DeviceResources>();
 	ID3D11DeviceContext*   deviceContext = deviceResources->GetD3DDeviceContext();

@@ -35,9 +35,9 @@ void Jumping::Initialize(Player * player)
 /// アップデート
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void Jumping::Update(float elapsedTime)
+void Jumping::Update(const DX::StepTimer& timer)
 {
-	elapsedTime;
+	timer;
 	m_player->ChangeGravitation();
 	MovingProcess();
 	ModeChangeProcess();
@@ -46,7 +46,7 @@ void Jumping::Update(float elapsedTime)
 /// <summary>
 /// 描画
 /// </summary>
-void Jumping::Render()
+void Jumping::Render(const DX::StepTimer& timer)
 {
 }
 

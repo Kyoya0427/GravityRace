@@ -10,6 +10,7 @@
 #include <SimpleMath.h>
 #include <vector>
 #include <functional>
+#include <Framework\StepTimer.h>
 
 #include "GameObject.h"
 
@@ -34,14 +35,14 @@ public:
 	~GameObjectManager();
 
 public:
-	void Update(float elapsedTime);
-	void Render();
+	void Update(const DX::StepTimer& timer);
+	void Render(const DX::StepTimer& timer);
 	void Add(GameObjectPtr&& object);
 	std::vector<GameObject*> Find(GameObject::ObjectID tag) const;
 	std::vector<GameObject*> Find(std::function<bool(GameObject*)> predicate) const;
 
 private:
-	void UpdateObjects(float elapsedTime);
+	void UpdateObjects(const DX::StepTimer& timer);
 	void AcceptObjects();
 	void DestroyObjects();
 };

@@ -37,9 +37,9 @@ void Running::Initialize(Player * player)
 /// 更新
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void Running::Update(float elapsedTime)
+void Running::Update(const DX::StepTimer& timer)
 {
-	elapsedTime;
+	timer;
 	m_player->ChangeGravitation();
 	MovingProcess();
 
@@ -51,7 +51,7 @@ void Running::Update(float elapsedTime)
 /// <summary>
 /// 描画
 /// </summary>
-void Running::Render()
+void Running::Render(const DX::StepTimer& timer)
 {
 }
 

@@ -78,7 +78,7 @@ Player::~Player()
 ///	更新
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void Player::Update(float elapsedTime)
+void Player::Update(const DX::StepTimer& timer)
 {
 	TPSCamera* tpsCamera = GameContext().Get<TPSCamera>();
 
@@ -88,12 +88,12 @@ void Player::Update(float elapsedTime)
 	m_gravity = -0.08;
 	if (m_isGravityState == GravityState::AGRAVITY)
 	{
-		m_energy -= elapsedTime;
+		//m_energy -= elapsedTime;
 		//SetVelocity(GetVelosity() + (m_raycastHit.normNear * m_gravity));
 	}
 	else if(m_isGravityState == GravityState::GRAVITATION)
 	{
-		m_energy += elapsedTime;
+		//m_energy += elapsedTime;
 		SetVelY(GetVelosity().y + m_gravity);
 	}
 
@@ -108,7 +108,7 @@ void Player::Update(float elapsedTime)
 		m_energy = 5.0f;
 	}
 
-	m_player->Update(elapsedTime);
+	m_player->Update(timer);
 
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 	if (GetPosition().y <= - 100.0f)
@@ -131,7 +131,7 @@ void Player::Update(float elapsedTime)
 /// <summary>
 /// 描画
 /// </summary>
-void Player::Render()
+void Player::Render(const DX::StepTimer& timer)
 {
 	TPSCamera* tpsCamera = GameContext().Get<TPSCamera>();
 	DX::DeviceResources* deviceResources = GameContext().Get<DX::DeviceResources>();
@@ -151,7 +151,7 @@ void Player::Render()
 
 	m_model->Draw(deviceContext, *state, m_world, tpsCamera->GetViewMatrix(), projection->GetMatrix());
 
-	m_player->Render();
+	m_player->Render(timer);
 
 	//DebugFont* debugFont = DebugFont::GetInstance();
 	//debugFont->print(10, 70, L"POS : X = %.2f Y = %.2f  Z = %.2f ", m_position.x, m_position.y, m_position.z);

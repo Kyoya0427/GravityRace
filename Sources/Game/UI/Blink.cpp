@@ -3,7 +3,7 @@
 // Summary	: “_–ÅƒNƒ‰ƒX
 // Author		: Kyoya Sakamoto
 //======================================================
-#include "pch.h"
+
 #include "Blink.h"
 
 Blink::Blink()

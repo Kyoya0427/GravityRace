@@ -19,9 +19,9 @@ void Floating::Initialize(Player * player)
 	m_speed = 0.0f;
 }
 
-void Floating::Update(float elapsedTime)
+void Floating::Update(const DX::StepTimer& timer)
 {
-	elapsedTime;
+	timer;
 	
 	m_player->SetVelY(m_speed);
 	if (m_count == 0)
@@ -46,7 +46,7 @@ void Floating::Update(float elapsedTime)
 	m_count++;
 }
 
-void Floating::Render()
+void Floating::Render(const DX::StepTimer& timer)
 {
 
 }

@@ -45,9 +45,9 @@ TPSCamera::~TPSCamera()
 /// アップデート
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void TPSCamera::Update(float elapsedTime)
+void TPSCamera::Update(const DX::StepTimer& timer)
 {
-	elapsedTime;
+	timer;
 	Player* player = GameContext().Get<Player>();
 	DirectX::SimpleMath::Vector3 playerPos = player->GetPosition();
 
@@ -121,9 +121,9 @@ void TPSCamera::Update(float elapsedTime)
 /// <summary>
 /// 描画
 /// </summary>
-void TPSCamera::Render()
+void TPSCamera::Render(const DX::StepTimer& timer)
 {
-
+	timer;
 }
 
 

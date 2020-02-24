@@ -38,9 +38,9 @@ void Agravity::Initialize(Player * player)
 /// アップデート
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void Agravity::Update(float elapsedTime)
+void Agravity::Update(const DX::StepTimer& timer)
 {
-	elapsedTime;
+	timer;
 	MovingProcess();
 	CameraDirectionCalculation();
 	AgravityModeOff();
@@ -49,7 +49,7 @@ void Agravity::Update(float elapsedTime)
 /// <summary>
 /// 描画
 /// </summary>
-void Agravity::Render()
+void Agravity::Render(const DX::StepTimer& timer)
 {
 }
 

@@ -17,9 +17,9 @@ public:
 	//‰Šú‰»
 	virtual void Initialize(Player* player) = 0;
 	//XV
-	virtual void Update(float elapsedTime) = 0;
+	virtual void Update(const DX::StepTimer& timer) = 0;
 	//•`‰æ
-	virtual void Render() = 0;
+	virtual void Render(const DX::StepTimer& timer) = 0;
 
 protected:
 	using GravityState = Player::GravityState;

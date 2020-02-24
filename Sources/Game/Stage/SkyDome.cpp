@@ -3,7 +3,6 @@
 // Summary	: スカイドーム
 // Author		: Kyoya Sakamoto
 //======================================================
-//#include <pch.h>
 
 #include "SkyDome.h"
 
@@ -59,15 +58,15 @@ SkyDome::~SkyDome()
 /// 更新
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void SkyDome::Update(float elapsedTime)
+void SkyDome::Update(const DX::StepTimer& timer)
 {
-	elapsedTime;
+	timer;
 }
 
 /// <summary>
 /// 描画
 /// </summary>
-void SkyDome::Render()
+void SkyDome::Render(const DX::StepTimer& timer)
 {
 	DX::DeviceResources* deviceResources = GameContext().Get<DX::DeviceResources>();
 	ID3D11DeviceContext*   deviceContext = deviceResources->GetD3DDeviceContext();

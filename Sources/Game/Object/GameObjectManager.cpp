@@ -29,7 +29,7 @@ GameObjectManager::~GameObjectManager()
 /// 更新
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void GameObjectManager::Update(float elapsedTime)
+void GameObjectManager::Update(const DX::StepTimer& timer)
 {
 	DestroyObjects();
 
@@ -40,17 +40,17 @@ void GameObjectManager::Update(float elapsedTime)
 	}
 
 
-	UpdateObjects(elapsedTime);
+	UpdateObjects(timer);
 }
 
 /// <summary>
 /// 描画
 /// </summary>
-void GameObjectManager::Render()
+void GameObjectManager::Render(const DX::StepTimer& timer)
 {
 	for (GameObjectPtr& object : m_objects)
 	{
-		object->Render();
+		object->Render(timer);
 	}
 }
 
@@ -124,12 +124,12 @@ std::vector<GameObject*> GameObjectManager::Find(std::function<bool(GameObject*)
 /// 追加オブジェクトの更新
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void GameObjectManager::UpdateObjects(float elapsedTime)
+void GameObjectManager::UpdateObjects(const DX::StepTimer& timer)
 {
 	// 実装1 範囲for文
 	for (GameObjectPtr& object : m_objects)
 	{
-		object->Update(elapsedTime);
+		object->Update(timer);
 	}
 }
 

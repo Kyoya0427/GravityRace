@@ -75,7 +75,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)/Sources/pch;$(ProjectDir);$(ProjectDir)/Sources;C:\DirectXTK\Inc;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)/Sources/pch;$(ProjectDir)/Sources;C:\DirectXTK\Inc;$(IncludePath)</IncludePath>
     <LibraryPath>C:\DirectXTK\Bin\Desktop_2015\Win32\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -250,7 +250,10 @@
     <ClCompile Include="Sources\Game\Stage\Ground.cpp" />
     <ClCompile Include="Sources\Game\Stage\SkyDome.cpp" />
     <ClCompile Include="Sources\Game\UI\Blink.cpp" />
-    <ClCompile Include="Sources\pch\pch.cpp" />
+    <ClCompile Include="Sources\pch\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="directx.ico" />

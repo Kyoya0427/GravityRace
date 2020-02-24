@@ -45,14 +45,14 @@ CheckPoint::~CheckPoint()
 {
 }
 
-void CheckPoint::Update(float elapsedTime)
+void CheckPoint::Update(const DX::StepTimer& timer)
 {
-	elapsedTime;
+	timer;
 	m_collisionPos = m_position;
 	m_collider->SetCollisionCenter(m_collisionPos);
 }
 
-void CheckPoint::Render()
+void CheckPoint::Render(const DX::StepTimer& timer)
 {
 	Projection*  projection = GameContext().Get<Projection>();
 	TPSCamera* tpsCamera = GameContext().Get<TPSCamera>();

@@ -19,8 +19,8 @@ public:
 	~Building();
 
 public:
-	void Update(float elapsedTime) override;
-	void Render() override;
+	void Update(const DX::StepTimer& timer) override;
+	void Render(const DX::StepTimer& timer) override;
 	
 	//“–‚½‚è”»’è
 	void HitContact(GameObject* object, RaycastHit* raycastHit = nullptr)override;

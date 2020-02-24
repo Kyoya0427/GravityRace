@@ -54,9 +54,9 @@ Building::~Building()
 /// 更新
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
-void Building::Update(float elapsedTime)
+void Building::Update(const DX::StepTimer& timer)
 {
-	elapsedTime;
+	timer;
 
 	m_collisionPos = m_position;
 	m_collider->SetCollisionCenter(m_collisionPos);
@@ -66,7 +66,7 @@ void Building::Update(float elapsedTime)
 /// <summary>
 /// 描画
 /// </summary>
-void Building::Render()
+void Building::Render(const DX::StepTimer& timer)
 {
 	ID3D11DeviceContext*   deviceContext = GameContext().Get<DX::DeviceResources>()->GetD3DDeviceContext();
 	DirectX::CommonStates* state = GameContext().Get<DirectX::CommonStates>();
