@@ -3,15 +3,13 @@
 // Summary	: デバッグカメラ
 // Author		: Kyoya Sakamoto
 //======================================================
-#include <pch.h>
-
 #include "TPSCamera.h"
 
 #include <Game\Player\Player.h>
 
 #include <Utils\GameContext.h>
 #include <Utils\ServiceLocator.h>
-
+#include <Framework\DeviceResources.h>
 
 
 using namespace DirectX;
@@ -42,7 +40,7 @@ TPSCamera::~TPSCamera()
 }
 
 /// <summary>
-/// アップデート
+/// 更新
 /// </summary>
 /// <param name="elapsedTime">タイマー</param>
 void TPSCamera::Update(const DX::StepTimer& timer)
@@ -87,7 +85,7 @@ void TPSCamera::Update(const DX::StepTimer& timer)
 
 	// ビュー行列を算出する
 	DirectX::SimpleMath::Vector3 cameraV(0.0f, 0.0f, 13.0f);
-//	DirectX::SimpleMath::Vector3 up(0.0f, 1.0f, 0.0f);
+
 	static DirectX::SimpleMath::Vector3 sUp = DirectX::SimpleMath::Vector3::Up;
 	DirectX::SimpleMath::Vector3 up = player->GetAxis();
 	DirectX::SimpleMath::Vector3 cross = sUp.Cross(up);
@@ -99,11 +97,6 @@ void TPSCamera::Update(const DX::StepTimer& timer)
 		sUp = DirectX::SimpleMath::Vector3::Transform(sUp, DirectX::SimpleMath::Quaternion::CreateFromAxisAngle(cross, angle*0.2f));
 	}
 
-	//up *= DirectX::SimpleMath::Vector3::Transform(up, Matrix::CreateRotationX(player->GetAxis().x));
-	//up *= DirectX::SimpleMath::Vector3::Transform(up, Matrix::CreateRotationY(player->GetAxis().y));
-	//up *= DirectX::SimpleMath::Vector3::Transform(up, Matrix::CreateRotationZ(player->GetAxis().z));
-	
-
 	refpos = playerPos + DirectX::SimpleMath::Vector3(0.0f, 2.0f, 0.0f);
 	eyepos = refpos + cameraV;
 
@@ -113,9 +106,7 @@ void TPSCamera::Update(const DX::StepTimer& timer)
 	m_eye = eyepos;
 	m_target = refpos;
 
-//	m_view = DirectX::SimpleMath::Matrix::CreateLookAt(m_eye, m_target, up);
 	m_view = DirectX::SimpleMath::Matrix::CreateLookAt(m_eye, m_target, sUp);
-//	DirectX::SimpleMath::Matrix::CreateRotationZ(DirectX::XM_PIDIV2
 }
 
 /// <summary>
@@ -137,7 +128,7 @@ void TPSCamera::HitContact(GameObject * object, RaycastHit * raycastHit)
 
 
 /// <summary>
-/// 行列の生成
+/// 回転行列の生成
 /// </summary>
 /// <param name="dx">X軸</param>
 /// <param name="dy">Y軸</param>
@@ -155,6 +146,28 @@ void TPSCamera::motion(float dx, float dy)
 
 		m_rotation = DirectX::SimpleMath::Quaternion::CreateFromYawPitchRoll(m_euler.y, m_euler.x, m_euler.z);
 	}
+}
+
+/// <summary>
+/// 射影行列を生成
+/// </summary>
+void TPSCamera::CreateProjection()
+{
+	// ウインドウサイズからアスペクト比を算出する
+	RECT size = GameContext().Get<DX::DeviceResources>()->GetOutputSize();
+	float aspectRatio = float(size.right) / float(size.bottom);
+
+	// 画角を設定
+	float fovAngleY = XMConvertToRadians(45.0f);
+
+	// 射影行列を作成する
+	m_projection = std::make_unique<Projection>();
+	m_projection->SetPerspectiveFieldOfView(
+		fovAngleY,
+		aspectRatio,
+		0.01f,
+		10000.0f
+	);
 }
 
 
