@@ -51,6 +51,7 @@ void Agravity::Update(const DX::StepTimer& timer)
 /// </summary>
 void Agravity::Render(const DX::StepTimer& timer)
 {
+	timer;
 }
 
 

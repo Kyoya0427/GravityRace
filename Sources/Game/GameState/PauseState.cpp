@@ -59,6 +59,7 @@ void PauseState::Update(const DX::StepTimer& timer)
 /// </summary>
 void PauseState::Render(const DX::StepTimer& timer)
 {
+	timer;
 }
 /// <summary>
 /// èIóπ

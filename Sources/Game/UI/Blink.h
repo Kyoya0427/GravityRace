@@ -6,6 +6,7 @@
 #pragma once
 
 #include <SimpleMath.h>
+#include <Framework\StepTimer.h>
 
 class Blink
 {
@@ -17,7 +18,7 @@ public:
 	void Initialize(float interval);
 
 	// 更新関数
-	virtual void Update(float elapsedTime);
+	virtual void Update(const DX::StepTimer& timer);
 
 	// 点滅状態の取得関数
 	bool GetState();

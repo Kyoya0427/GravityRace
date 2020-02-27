@@ -53,6 +53,7 @@ void Running::Update(const DX::StepTimer& timer)
 /// </summary>
 void Running::Render(const DX::StepTimer& timer)
 {
+	timer;
 }
 
 /// <summary>

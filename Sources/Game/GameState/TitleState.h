@@ -9,7 +9,7 @@
 #include <SpriteBatch.h>
 #include <SimpleMath.h>	
 #include <Keyboard.h>
-//#include <UI\Blink.h>
+#include <Game\UI\Blink.h>
 
 class TitleState :public IGameState
 {
@@ -43,7 +43,7 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_pushTexture;
 	DirectX::SimpleMath::Vector2                     m_pushPos;
 
-	//std::unique_ptr<Blink>                           m_blink;
-	//bool                                             m_blinkFlag;
+	std::unique_ptr<Blink>                           m_blink;
+	bool                                             m_blinkFlag;
 };
 

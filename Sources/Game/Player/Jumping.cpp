@@ -48,6 +48,7 @@ void Jumping::Update(const DX::StepTimer& timer)
 /// </summary>
 void Jumping::Render(const DX::StepTimer& timer)
 {
+	timer;
 }
 
 /// <summary>

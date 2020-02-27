@@ -1,10 +1,8 @@
 //======================================================
-// File Name	 : PlayState.cpp
-// Summary	 : ãƒ—ãƒ¬ã‚¤ã‚¹ãƒ†ãƒ¼ãƒˆ
-// Author		 : Kyoya Sakamoto
+// File Name	: PlayState.h
+// Summary	: ƒvƒŒƒCƒXƒeƒCƒg
+// Author		: Kyoya Sakamoto
 //======================================================
-//#include <pch.h>
-
 #include "PlayState.h"
 #include "GameStateManager.h"
 
@@ -18,16 +16,15 @@ using namespace DirectX::SimpleMath;
 
 
 /// <summary>
-/// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+/// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
 /// </summary>
 PlayState::PlayState()
 	:IGameState()
-
 {
 }
 
 /// <summary>
-/// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+/// ƒfƒXƒgƒ‰ƒNƒ^
 /// </summary>
 PlayState::~PlayState()
 {
@@ -35,33 +32,33 @@ PlayState::~PlayState()
 }
 
 /// <summary>
-/// åˆæœŸåŒ–
+/// ‰Šú‰»
 /// </summary>
 void PlayState::Initialize()
 {
-	
+
 }
 
 /// <summary>
-/// æ›´æ–°
+/// XV
 /// </summary>
-/// <param name="elapsedTime">ã‚¿ã‚¤ãƒãƒ¼</param>
+/// <param name="elapsedTime">ƒ^ƒCƒ}[</param>
 void PlayState::Update(const DX::StepTimer& timer)
 {
-	
+	timer;
 }
 
 /// <summary>
-/// æç”»
+/// •`‰æ
 /// </summary>
 /// <param name="timer"></param>
 void PlayState::Render(const DX::StepTimer& timer)
 {
-	
+	timer;
 }
 
 /// <summary>
-/// çµ‚äº†
+/// I—¹
 /// </summary>
 void PlayState::Finalize()
 {

@@ -16,11 +16,11 @@ void Blink::Initialize(float interval)
 	m_interval = interval;
 }
 
-void Blink::Update(float elapsedTime)
+void Blink::Update(const DX::StepTimer& timer)
 {
 	if (m_stopFlag) return;
 
-	m_blinkTime += elapsedTime;
+	m_blinkTime += static_cast<float>(timer.GetElapsedSeconds());
 	if (m_blinkTime >= m_interval)
 	{
 		m_blinkFlag = !m_blinkFlag;

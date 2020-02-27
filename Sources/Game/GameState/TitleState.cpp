@@ -18,7 +18,7 @@
 /// </summary>
 TitleState::TitleState()
 	:IGameState()
-//	, m_blinkFlag(false)
+	, m_blinkFlag(false)
 {
 }
 
@@ -41,9 +41,9 @@ void TitleState::Initialize()
 	DirectX::CreateWICTextureFromFile(GameContext().Get<DX::DeviceResources>()->GetD3DDevice(), L"Resources\\Textures\\space.png", NULL, m_pushTexture.ReleaseAndGetAddressOf());
 	m_pushPos = DirectX::SimpleMath::Vector2(430, 500);
 
-	//m_blink = std::make_unique<Blink>();
-	//m_blink->Initialize(0.16f);
-	//m_blink->Start();
+	m_blink = std::make_unique<Blink>();
+	m_blink->Initialize(0.16f);
+	m_blink->Start();
 }
 
 /// <summary>
@@ -52,6 +52,7 @@ void TitleState::Initialize()
 /// <param name="elapsedTime">タイマー</param>
 void TitleState::Update(const DX::StepTimer& timer)
 {
+	timer;
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 	m_keyTracker.Update(keyState);
 
@@ -64,7 +65,7 @@ void TitleState::Update(const DX::StepTimer& timer)
 	}
 
 	SelectPartsMode(true);
-	//m_blink->Update(elapsedTime);
+	m_blink->Update(timer);
 }
 
 /// <summary>
@@ -72,12 +73,13 @@ void TitleState::Update(const DX::StepTimer& timer)
 /// </summary>
 void TitleState::Render(const DX::StepTimer& timer)
 {
+	timer;
 	m_spriteBatch->Begin();
 	m_spriteBatch->Draw(m_texture.Get(), m_pos);
-	//if (m_blinkFlag == false || m_blink->GetState())
-	//{
-	//	m_spriteBatch->Draw(m_pushTexture.Get(), m_pushPos);
-	//}
+	if (m_blinkFlag == false || m_blink->GetState())
+	{
+		m_spriteBatch->Draw(m_pushTexture.Get(), m_pushPos);
+	}
 	m_spriteBatch->End();
 }
 
@@ -90,14 +92,14 @@ void TitleState::Finalize()
 
 void TitleState::SelectPartsMode(bool flag)
 {
-	//m_blinkFlag = flag;
-	//// 点滅間隔の設定
-	//if (m_blinkFlag == true)
-	//{
-	//	m_blink->Initialize(0.2f);
-	//}
-	//else
-	//{
-	//	m_blink->Initialize(0.2f);
-	//}
+	m_blinkFlag = flag;
+	// 点滅間隔の設定
+	if (m_blinkFlag == true)
+	{
+		m_blink->Initialize(0.2f);
+	}
+	else
+	{
+		m_blink->Initialize(0.2f);
+	}
 }

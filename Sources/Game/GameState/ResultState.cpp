@@ -44,6 +44,7 @@ void ResultState::Initialize()
 /// <param name="elapsedTime">タイマー</param>
 void ResultState::Update(const DX::StepTimer& timer)
 {
+	timer;
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 	m_keyTracker.Update(keyState);
 
@@ -61,6 +62,7 @@ void ResultState::Update(const DX::StepTimer& timer)
 /// </summary>
 void ResultState::Render(const DX::StepTimer& timer)
 {
+	timer;
 	m_spriteBatch->Begin();
 	m_spriteBatch->Draw(m_texture.Get(), m_pos);
 	m_spriteBatch->End();

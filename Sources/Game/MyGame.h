@@ -1,6 +1,6 @@
 //======================================================
 // File Name	: MyGame.h
-// Summary	: ãƒã‚¤ã‚²ãƒ¼ãƒ 
+// Summary	: ƒ}ƒCƒQ[ƒ€
 // Author		: Kyoya Sakamoto
 //======================================================
 #pragma once
@@ -9,29 +9,28 @@
 
 
 #include <Framework\Game.h>
-#include <Utils\Projection.h>
 
 class GameStateManager;
 
-class MyGame 
+class MyGame
 {
- public:
-	 //ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
-	 MyGame();
-	 //ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
-	 ~MyGame();
+public:
+	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	MyGame();
+	//ƒfƒXƒgƒ‰ƒNƒ^
+	~MyGame();
 
- public:
-	 //åˆæœŸåŒ–
-	 void Initialize();
-	 //æ›´æ–°
-	 void Update(const DX::StepTimer& timer);
-	 //æç”»
-	 void Render(const DX::StepTimer& timer);
-	 //çµ‚äº†
-	 void Finalize();
+public:
+	//‰Šú‰»
+	void Initialize();
+	//XV
+	void Update(const DX::StepTimer& timer);
+	//•`‰æ
+	void Render(const DX::StepTimer& timer);
+	//I—¹
+	void Finalize();
 
- private:
-	 //ã‚¹ãƒ†ã‚¤ãƒˆãƒãƒã‚¸ãƒ£ãƒ¼
-	 std::unique_ptr<GameStateManager>          m_stateManager;
+private:
+	//ƒXƒeƒCƒgƒ}ƒlƒWƒƒ[
+	std::unique_ptr<GameStateManager>          m_stateManager;
 };

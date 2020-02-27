@@ -1,6 +1,6 @@
-//======================================================
+ï»¿//======================================================
 // File Name	: TPSCamera.h
-// Summary	: ƒfƒoƒbƒOƒJƒƒ‰
+// Summary	: ãƒ‡ãƒãƒƒã‚°ã‚«ãƒ¡ãƒ©
 // Author		: Kyoya Sakamoto
 //======================================================
 #pragma once
@@ -12,76 +12,77 @@
 #include <Game\Object\GameObject.h>
 #include <Utils\Projection.h>
 
-// ƒfƒoƒbƒO—pƒJƒƒ‰ƒNƒ‰ƒX
+// ãƒ‡ãƒãƒƒã‚°ç”¨ã‚«ãƒ¡ãƒ©ã‚¯ãƒ©ã‚¹
 class TPSCamera :public GameObject
 {
-public: // ’è”
+public: // å®šæ•°
 
-		// ƒJƒƒ‰‚Ì‹——£
+		// ã‚«ãƒ¡ãƒ©ã®è·é›¢
 	static const float DEFAULT_CAMERA_DISTANCE;
 
 public: 
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	TPSCamera();
-	// ƒfƒXƒgƒ‰ƒNƒ^
+	// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	~TPSCamera();
 
 public: 
-	// XV
+	// æ›´æ–°
 	void Update(const DX::StepTimer& timer) override;
-	//•`‰æ
+	//æç”»
 	void Render(const DX::StepTimer& timer) override;
-	//“–‚½‚è”»’èŒã‚Ìˆ—
+	//å½“ãŸã‚Šåˆ¤å®šå¾Œã®å‡¦ç†
 	void HitContact(GameObject* object, RaycastHit* raycastHit = nullptr) override;
 
 public: 
-	// ƒrƒ…[s—ñæ“¾
+	// ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—å–å¾—
 	DirectX::SimpleMath::Matrix GetViewMatrix();    
-	// ƒfƒoƒbƒOƒJƒƒ‰‚ÌˆÊ’uæ“¾
+	// ãƒ‡ãƒãƒƒã‚°ã‚«ãƒ¡ãƒ©ã®ä½ç½®å–å¾—
 	DirectX::SimpleMath::Vector3 GetEyePosition();   
-	// ƒfƒoƒbƒOƒJƒƒ‰‚Ì’‹“_æ“¾
+	// ãƒ‡ãƒãƒƒã‚°ã‚«ãƒ¡ãƒ©ã®æ³¨è¦–ç‚¹å–å¾—
 	DirectX::SimpleMath::Vector3 GetTargetPosition();
-	//ƒIƒCƒ‰[Šp‚ğæ“¾
+	//ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’å–å¾—
 	DirectX::SimpleMath::Vector3 GetEuler();
-	//Ë‰es—ñæ“¾
+	//å°„å½±è¡Œåˆ—å–å¾—
 	Projection* GetProjection();
 
 private: 
-	//‰ñ“]s—ñ‚Ì¶¬
+	//å›è»¢è¡Œåˆ—ã®ç”Ÿæˆ
 	void motion(float dx, float dy);
-	//Ë‰es—ñ¶¬
+	//å°„å½±è¡Œåˆ—ç”Ÿæˆ
 	void CreateProjection();
 
 private: 
-	// ‘O‰ñ‚Ìƒ}ƒEƒXÀ•W
+	// å‰å›ã®ãƒã‚¦ã‚¹åº§æ¨™
 	int m_prevX, m_prevY;
-	// ¶¬‚³‚ê‚½ƒrƒ…[s—ñ
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ“ãƒ¥ãƒ¼è¡Œåˆ—
 	DirectX::SimpleMath::Matrix        m_view;	
-	// ‹“_
+	// è¦–ç‚¹
 	DirectX::SimpleMath::Vector3       m_eye;
-	// ’‹“_
+	// æ³¨è¦–ç‚¹
 	DirectX::SimpleMath::Vector3       m_target;
-	//ƒIƒCƒ‰[Šp
+	//ã‚ªã‚¤ãƒ©ãƒ¼è§’
 	DirectX::SimpleMath::Vector3       m_euler;
-	// ƒ}ƒEƒXƒgƒ‰ƒbƒJ[
+	// ãƒã‚¦ã‚¹ãƒˆãƒ©ãƒƒã‚«ãƒ¼
 	DirectX::Mouse::ButtonStateTracker m_tracker;
-	//Ë‰es—ñ
+	//å°„å½±è¡Œåˆ—
 	std::unique_ptr<Projection>        m_projection;
 };
 
 
 /// <summary>
-/// ƒrƒ…[s—ñæ“¾
+/// ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—å–å¾—
 /// </summary>
 /// <returns></returns>
-DirectX::SimpleMath::Matrix TPSCamera::GetViewMatrix()
+ inline DirectX::SimpleMath::Matrix TPSCamera::GetViewMatrix()
 {
-	return m_view;
+	 return m_view;
 }
 
+
 /// <summary>
-/// ‹“_À•Wæ“¾
+/// è¦–ç‚¹åº§æ¨™å–å¾—
 /// </summary>
 /// <returns></returns>
 inline DirectX::SimpleMath::Vector3 TPSCamera::GetEyePosition()
@@ -90,7 +91,7 @@ inline DirectX::SimpleMath::Vector3 TPSCamera::GetEyePosition()
 }
 
 /// <summary>
-/// ’‹“_À•Wæ“¾
+/// æ³¨è¦–ç‚¹åº§æ¨™å–å¾—
 /// </summary>
 /// <returns></returns>
 inline DirectX::SimpleMath::Vector3 TPSCamera::GetTargetPosition()
@@ -99,7 +100,7 @@ inline DirectX::SimpleMath::Vector3 TPSCamera::GetTargetPosition()
 }
 
 /// <summary>
-/// ƒIƒCƒ‰[Špæ“¾
+/// ã‚ªã‚¤ãƒ©ãƒ¼è§’å–å¾—
 /// </summary>
 /// <returns></returns>
 inline DirectX::SimpleMath::Vector3 TPSCamera::GetEuler()
@@ -108,7 +109,7 @@ inline DirectX::SimpleMath::Vector3 TPSCamera::GetEuler()
 }
 
 /// <summary>
-/// Ë‰es—ñæ“¾
+/// å°„å½±è¡Œåˆ—å–å¾—
 /// </summary>
 /// <returns></returns>
 inline Projection* TPSCamera::GetProjection()

@@ -68,6 +68,7 @@ void Building::Update(const DX::StepTimer& timer)
 /// </summary>
 void Building::Render(const DX::StepTimer& timer)
 {
+	timer;
 	ID3D11DeviceContext*   deviceContext = GameContext().Get<DX::DeviceResources>()->GetD3DDeviceContext();
 	DirectX::CommonStates* state = GameContext().Get<DirectX::CommonStates>();
 	Projection*  projection = GameContext().Get<Projection>();

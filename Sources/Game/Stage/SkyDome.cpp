@@ -68,6 +68,7 @@ void SkyDome::Update(const DX::StepTimer& timer)
 /// </summary>
 void SkyDome::Render(const DX::StepTimer& timer)
 {
+	timer;
 	DX::DeviceResources* deviceResources = GameContext().Get<DX::DeviceResources>();
 	ID3D11DeviceContext*   deviceContext = deviceResources->GetD3DDeviceContext();
 	DirectX::CommonStates* state = GameContext().Get<DirectX::CommonStates>();

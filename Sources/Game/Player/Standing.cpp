@@ -52,6 +52,7 @@ void Standing::Update(const DX::StepTimer& timer)
 /// </summary>
 void Standing::Render(const DX::StepTimer& timer)
 {
+	timer;
 }
 
 /// <summary>

@@ -48,5 +48,5 @@ void Floating::Update(const DX::StepTimer& timer)
 
 void Floating::Render(const DX::StepTimer& timer)
 {
-
+	timer;
 }

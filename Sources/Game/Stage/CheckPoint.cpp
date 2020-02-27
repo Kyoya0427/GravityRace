@@ -54,6 +54,7 @@ void CheckPoint::Update(const DX::StepTimer& timer)
 
 void CheckPoint::Render(const DX::StepTimer& timer)
 {
+	timer;
 	Projection*  projection = GameContext().Get<Projection>();
 	TPSCamera* tpsCamera = GameContext().Get<TPSCamera>();
 

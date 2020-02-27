@@ -76,9 +76,6 @@
     <ClInclude Include="Sources\Utils\Utilities.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Game\MyGame.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Sources\Game\GameState\GameStateManager.h">
       <Filter>Game\GameState</Filter>
     </ClInclude>
@@ -163,6 +160,9 @@
     <ClInclude Include="Sources\Game\UI\Blink.h">
       <Filter>Game\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Game\MyGame.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -182,9 +182,6 @@
       <Filter>Game\GameState</Filter>
     </ClCompile>
     <ClCompile Include="Sources\Game\GameState\PauseState.cpp">
-      <Filter>Game\GameState</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Game\GameState\PlayState.cpp">
       <Filter>Game\GameState</Filter>
     </ClCompile>
     <ClCompile Include="Sources\Game\GameState\ResultState.cpp">
@@ -246,6 +243,9 @@
     </ClCompile>
     <ClCompile Include="Sources\Game\UI\Blink.cpp">
       <Filter>Game\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\GameState\PlayState.cpp">
+      <Filter>Game\GameState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
