@@ -28,7 +28,7 @@ TPSCamera::TPSCamera()
 {
 	// マウスを相対モードへ変更
 	DirectX::Mouse::Get().SetMode(DirectX::Mouse::Mode::MODE_RELATIVE);
-
+	CreateProjection();
 }
 
 /// <summary>

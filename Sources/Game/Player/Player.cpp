@@ -137,7 +137,6 @@ void Player::Render(const DX::StepTimer& timer)
 	DX::DeviceResources* deviceResources = GameContext().Get<DX::DeviceResources>();
 	ID3D11DeviceContext*   deviceContext = deviceResources->GetD3DDeviceContext();
 	DirectX::CommonStates* state         = GameContext().Get<DirectX::CommonStates>();
-	Projection*  projection              = GameContext().Get<Projection>();
 
 	m_scale = 0.05;
 
@@ -149,7 +148,7 @@ void Player::Render(const DX::StepTimer& timer)
 	Matrix transMat = Matrix::CreateTranslation(m_position);
 	m_world = scalemat * rotMat * transMat;
 
-	m_model->Draw(deviceContext, *state, m_world, tpsCamera->GetViewMatrix(), projection->GetMatrix());
+	m_model->Draw(deviceContext, *state, m_world, tpsCamera->GetViewMatrix(), tpsCamera->GetProjection());
 
 	m_player->Render(timer);
 

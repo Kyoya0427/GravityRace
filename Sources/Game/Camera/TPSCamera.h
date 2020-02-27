@@ -45,7 +45,7 @@ public:
 	//オイラー角を取得
 	DirectX::SimpleMath::Vector3 GetEuler();
 	//射影行列取得
-	Projection* GetProjection();
+	DirectX::SimpleMath::Matrix GetProjection();
 
 private: 
 	//回転行列の生成
@@ -112,7 +112,7 @@ inline DirectX::SimpleMath::Vector3 TPSCamera::GetEuler()
 /// 射影行列取得
 /// </summary>
 /// <returns></returns>
-inline Projection* TPSCamera::GetProjection()
+inline DirectX::SimpleMath::Matrix TPSCamera::GetProjection()
 {
-	return m_projection.get();
+	return m_projection.get()->GetMatrix();
 }

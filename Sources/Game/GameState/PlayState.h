@@ -12,7 +12,8 @@
 #include "IGameState.h"
 
 
-
+class GameObjectManager;
+class CollisionManager;
 
 
 class PlayState :public IGameState
@@ -34,7 +35,9 @@ public:
 	void Finalize() override;
 
 private:
-	
+
+	std::unique_ptr<GameObjectManager>  m_gameObjectManager;
+	std::unique_ptr<CollisionManager>   m_collisionManager;
 	
 };
 
