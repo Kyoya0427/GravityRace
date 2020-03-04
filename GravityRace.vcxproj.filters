@@ -50,6 +50,9 @@
     <Filter Include="Game\UI">
       <UniqueIdentifier>{c4bb03df-f2d4-4a33-99fc-c39317ab7057}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Player\State">
+      <UniqueIdentifier>{d1a621e4-b747-48aa-9ee7-d3de263fec6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\pch\pch.h">
@@ -124,29 +127,11 @@
     <ClInclude Include="Sources\Game\Object\GameObjectManager.h">
       <Filter>Game\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Game\Player\Agravity.h">
-      <Filter>Game\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Game\Player\Floating.h">
-      <Filter>Game\Player</Filter>
-    </ClInclude>
     <ClInclude Include="Sources\Game\Player\IPlayer.h">
-      <Filter>Game\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Game\Player\Jumping.h">
       <Filter>Game\Player</Filter>
     </ClInclude>
     <ClInclude Include="Sources\Game\Player\Player.h">
       <Filter>Game\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Game\Player\Running.h">
-      <Filter>Game\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Game\Player\Standing.h">
-      <Filter>Game\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Game\Stage\Building.h">
-      <Filter>Game\Stage</Filter>
     </ClInclude>
     <ClInclude Include="Sources\Game\Stage\CheckPoint.h">
       <Filter>Game\Stage</Filter>
@@ -163,7 +148,25 @@
     <ClInclude Include="Sources\Game\MyGame.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Game\Stage\Stage.h">
+    <ClInclude Include="Sources\Game\Player\Agravity.h">
+      <Filter>Game\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\Floating.h">
+      <Filter>Game\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\Jumping.h">
+      <Filter>Game\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\Running.h">
+      <Filter>Game\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\Standing.h">
+      <Filter>Game\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Stage\StageManager.h">
+      <Filter>Game\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Stage\Scaffold.h">
       <Filter>Game\Stage</Filter>
     </ClInclude>
   </ItemGroup>
@@ -214,26 +217,8 @@
     <ClCompile Include="Sources\Game\Object\GameObjectManager.cpp">
       <Filter>Game\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Game\Player\Agravity.cpp">
-      <Filter>Game\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Game\Player\Floating.cpp">
-      <Filter>Game\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Game\Player\Jumping.cpp">
-      <Filter>Game\Player</Filter>
-    </ClCompile>
     <ClCompile Include="Sources\Game\Player\Player.cpp">
       <Filter>Game\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Game\Player\Running.cpp">
-      <Filter>Game\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Game\Player\Standing.cpp">
-      <Filter>Game\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Game\Stage\Building.cpp">
-      <Filter>Game\Stage</Filter>
     </ClCompile>
     <ClCompile Include="Sources\Game\Stage\CheckPoint.cpp">
       <Filter>Game\Stage</Filter>
@@ -250,7 +235,25 @@
     <ClCompile Include="Sources\Game\GameState\PlayState.cpp">
       <Filter>Game\GameState</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Game\Stage\Stage.cpp">
+    <ClCompile Include="Sources\Game\Player\Agravity.cpp">
+      <Filter>Game\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\Floating.cpp">
+      <Filter>Game\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\Jumping.cpp">
+      <Filter>Game\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\Running.cpp">
+      <Filter>Game\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\Standing.cpp">
+      <Filter>Game\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Stage\StageManager.cpp">
+      <Filter>Game\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Stage\Scaffold.cpp">
       <Filter>Game\Stage</Filter>
     </ClCompile>
   </ItemGroup>

@@ -77,7 +77,6 @@ void Ground::Render(const DX::StepTimer& timer)
 	DX::DeviceResources* deviceResources = GameContext().Get<DX::DeviceResources>();
 	ID3D11DeviceContext*   deviceContext = deviceResources->GetD3DDeviceContext();
 	DirectX::CommonStates* state = GameContext().Get<DirectX::CommonStates>();
-	Projection*  projection = GameContext().Get<Projection>();
 	TPSCamera* tpsCamera = GameContext().Get<TPSCamera>();
 
 	m_scale = 0.05;
@@ -89,8 +88,8 @@ void Ground::Render(const DX::StepTimer& timer)
 	Matrix debugBoxtransMat = Matrix::CreateTranslation(m_collisionPos);
 	Matrix debugBoxWorld = debugBoxtransMat;
 
-	m_model->Draw(deviceContext, *state, m_world, tpsCamera->GetViewMatrix(), projection->GetMatrix());
-	m_debugBox->Draw(debugBoxWorld, tpsCamera->GetViewMatrix(), projection->GetMatrix(), m_color, nullptr, true);
+	m_model->Draw(deviceContext, *state, m_world, tpsCamera->GetViewMatrix(), tpsCamera->GetProjection());
+	m_debugBox->Draw(debugBoxWorld, tpsCamera->GetViewMatrix(), tpsCamera->GetProjection(), m_color, nullptr, true);
 
 	
 	

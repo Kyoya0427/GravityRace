@@ -152,39 +152,6 @@ void Player::Render(const DX::StepTimer& timer)
 
 	m_player->Render(timer);
 
-	//DebugFont* debugFont = DebugFont::GetInstance();
-	//debugFont->print(10, 70, L"POS : X = %.2f Y = %.2f  Z = %.2f ", m_position.x, m_position.y, m_position.z);
-	//debugFont->draw();
-	//debugFont->print(10, 90, L"VEL : X = %.2f Y = %.2f  Z = %.2f ", m_velocity.x, m_velocity.y, m_velocity.z);
-	//debugFont->draw();
-	//
-	//debugFont->print(1050, 10, L"energy = %.1f / 5.0", m_energy);
-	//debugFont->draw();
-	//switch (m_isContact)
-	//{
-	//case 0:
-	//	debugFont->print(600, 30, L"NO_CONTACT");
-	//	debugFont->draw();
-	//	break;
-	//case 1:
-	//	debugFont->print(600, 30, L"HIT_CONTACT");
-	//	debugFont->draw();
-	//	break;
-	//}
-	//
-	//switch (m_isGravityState)
-	//{
-	//case 0:
-	//	debugFont->print(600, 50, L"GRAVITATION");
-	//	debugFont->draw();
-	//	break;
-	//case 1:
-	//	debugFont->print(600, 50, L"AGRAVITY");
-	//	debugFont->draw();
-	//	break;
-	//}
-
-	
 }
 
 

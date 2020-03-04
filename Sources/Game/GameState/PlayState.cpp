@@ -14,7 +14,7 @@
 #include <Game\Object\GameObjectManager.h>
 #include <Game\Camera\TPSCamera.h>
 #include <Game\Player\Player.h>
-#include <Game\Stage\Ground.h>
+#include <Game\Stage\StageManager.h>
 
 
 #include <Utils\GameContext.h>
@@ -64,6 +64,11 @@ void PlayState::Initialize()
 	factory->SetDirectory(L"Resources/Models");
 	GameContext().Register<EffectFactory>(factory);
 
+	m_stageManager = std::make_unique<StageManager>();
+	m_stageManager->Initialize();
+
+	
+
 	//TPSカメラ生成
 	std::unique_ptr<TPSCamera> tpsCamera = std::make_unique<TPSCamera>();
 	GameContext().Register<TPSCamera>(tpsCamera.get());
@@ -96,7 +101,7 @@ void PlayState::Update(const DX::StepTimer& timer)
 
 	//オブジェクトマネジャー更新
 	m_gameObjectManager->Update(timer);
-
+	m_stageManager->Update(timer);
 }
 
 /// <summary>
@@ -107,6 +112,8 @@ void PlayState::Render(const DX::StepTimer& timer)
 {
 	//オブジェクトマネジャー描画
 	m_gameObjectManager->Render(timer);
+	m_stageManager->Render(timer);
+	
 }
 
 /// <summary>

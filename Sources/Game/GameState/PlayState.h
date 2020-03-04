@@ -14,7 +14,7 @@
 
 class GameObjectManager;
 class CollisionManager;
-
+class StageManager;
 
 class PlayState :public IGameState
 {
@@ -38,6 +38,6 @@ private:
 
 	std::unique_ptr<GameObjectManager>  m_gameObjectManager;
 	std::unique_ptr<CollisionManager>   m_collisionManager;
-	
+	std::unique_ptr<StageManager>       m_stageManager;
 };
 

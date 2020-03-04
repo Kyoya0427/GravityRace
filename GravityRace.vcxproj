@@ -211,11 +211,11 @@
     <ClInclude Include="Sources\Game\Player\Player.h" />
     <ClInclude Include="Sources\Game\Player\Running.h" />
     <ClInclude Include="Sources\Game\Player\Standing.h" />
-    <ClInclude Include="Sources\Game\Stage\Building.h" />
+    <ClInclude Include="Sources\Game\Stage\Scaffold.h" />
     <ClInclude Include="Sources\Game\Stage\CheckPoint.h" />
     <ClInclude Include="Sources\Game\Stage\Ground.h" />
     <ClInclude Include="Sources\Game\Stage\SkyDome.h" />
-    <ClInclude Include="Sources\Game\Stage\Stage.h" />
+    <ClInclude Include="Sources\Game\Stage\StageManager.h" />
     <ClInclude Include="Sources\Game\UI\Blink.h" />
     <ClInclude Include="Sources\pch\pch.h" />
     <ClInclude Include="Sources\Utils\GameContext.h" />
@@ -246,11 +246,11 @@
     <ClCompile Include="Sources\Game\Player\Player.cpp" />
     <ClCompile Include="Sources\Game\Player\Running.cpp" />
     <ClCompile Include="Sources\Game\Player\Standing.cpp" />
-    <ClCompile Include="Sources\Game\Stage\Building.cpp" />
+    <ClCompile Include="Sources\Game\Stage\Scaffold.cpp" />
     <ClCompile Include="Sources\Game\Stage\CheckPoint.cpp" />
     <ClCompile Include="Sources\Game\Stage\Ground.cpp" />
     <ClCompile Include="Sources\Game\Stage\SkyDome.cpp" />
-    <ClCompile Include="Sources\Game\Stage\Stage.cpp" />
+    <ClCompile Include="Sources\Game\Stage\StageManager.cpp" />
     <ClCompile Include="Sources\Game\UI\Blink.cpp" />
     <ClCompile Include="Sources\pch\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

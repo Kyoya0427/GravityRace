@@ -72,7 +72,6 @@ void SkyDome::Render(const DX::StepTimer& timer)
 	DX::DeviceResources* deviceResources = GameContext().Get<DX::DeviceResources>();
 	ID3D11DeviceContext*   deviceContext = deviceResources->GetD3DDeviceContext();
 	DirectX::CommonStates* state = GameContext().Get<DirectX::CommonStates>();
-	Projection*  projection = GameContext().Get<Projection>();
 	TPSCamera* tpsCamera = GameContext().Get<TPSCamera>();
 
 	m_position = Vector3::Zero;
@@ -80,7 +79,7 @@ void SkyDome::Render(const DX::StepTimer& timer)
 	m_world = DirectX::SimpleMath::Matrix::Identity;
 	m_world *= DirectX::SimpleMath::Matrix::CreateTranslation(m_position);
 
-	m_model->Draw(deviceContext, *state, m_world, tpsCamera->GetViewMatrix(), projection->GetMatrix());
+	m_model->Draw(deviceContext, *state, m_world, tpsCamera->GetViewMatrix(), tpsCamera->GetProjection());
 
 }
 
