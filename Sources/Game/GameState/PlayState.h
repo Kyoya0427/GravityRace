@@ -11,9 +11,9 @@
 
 #include "IGameState.h"
 
-
-class GameObjectManager;
 class CollisionManager;
+class PlayerManager;
+class TPSCamera;
 class StageManager;
 
 class PlayState :public IGameState
@@ -36,8 +36,15 @@ public:
 
 private:
 
-	std::unique_ptr<GameObjectManager>  m_gameObjectManager;
+	//当たり判定マネージャー
 	std::unique_ptr<CollisionManager>   m_collisionManager;
+	//ステージマネージャー
 	std::unique_ptr<StageManager>       m_stageManager;
+	//プレイヤーマネージャー
+	std::unique_ptr<PlayerManager>      m_playerManager;
+	//TPSカメラ
+	std::unique_ptr<TPSCamera>          m_tpsCamera;
+
+
 };
 

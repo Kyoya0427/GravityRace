@@ -209,6 +209,7 @@
     <ClInclude Include="Sources\Game\Player\IPlayer.h" />
     <ClInclude Include="Sources\Game\Player\Jumping.h" />
     <ClInclude Include="Sources\Game\Player\Player.h" />
+    <ClInclude Include="Sources\Game\Player\PlayerManager.h" />
     <ClInclude Include="Sources\Game\Player\Running.h" />
     <ClInclude Include="Sources\Game\Player\Standing.h" />
     <ClInclude Include="Sources\Game\Stage\Scaffold.h" />
@@ -244,6 +245,7 @@
     <ClCompile Include="Sources\Game\Player\Floating.cpp" />
     <ClCompile Include="Sources\Game\Player\Jumping.cpp" />
     <ClCompile Include="Sources\Game\Player\Player.cpp" />
+    <ClCompile Include="Sources\Game\Player\PlayerManager.cpp" />
     <ClCompile Include="Sources\Game\Player\Running.cpp" />
     <ClCompile Include="Sources\Game\Player\Standing.cpp" />
     <ClCompile Include="Sources\Game\Stage\Scaffold.cpp" />

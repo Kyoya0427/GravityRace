@@ -11,9 +11,12 @@
 #include <SimpleMath.h>
 
 #include <Game\Collider\CollisionManager.h>
-#include <Game\Object\GameObjectManager.h>
+
 #include <Game\Camera\TPSCamera.h>
+
+#include <Game\Player\PlayerManager.h>
 #include <Game\Player\Player.h>
+
 #include <Game\Stage\StageManager.h>
 
 
@@ -30,7 +33,6 @@ using namespace DirectX::SimpleMath;
 /// </summary>
 PlayState::PlayState()
 	: IGameState()
-	, m_gameObjectManager()
 	, m_collisionManager()
 {
 }
@@ -51,10 +53,6 @@ void PlayState::Initialize()
 	//デバイス取得
 	ID3D11Device* device = GameContext().Get<DX::DeviceResources>()->GetD3DDevice();
 
-	//ゲームオブジェクトマネジャー生成
-	m_gameObjectManager = std::make_unique<GameObjectManager>();
-	GameContext().Register<GameObjectManager>(m_gameObjectManager.get());
-
 	//コライダーマネジャー生成
 	m_collisionManager = std::make_unique<CollisionManager>();
 	GameContext().Register<CollisionManager>(m_collisionManager.get());
@@ -64,22 +62,22 @@ void PlayState::Initialize()
 	factory->SetDirectory(L"Resources/Models");
 	GameContext().Register<EffectFactory>(factory);
 
+	//ステージマネージャー生成
 	m_stageManager = std::make_unique<StageManager>();
 	m_stageManager->Initialize();
 
+	//プレイヤーマネージャー生成
+	m_playerManager = std::make_unique<PlayerManager>();
+	m_playerManager->Initialize();
+	GameContext().Register<Player>(m_playerManager->GetPlayer());
 	
 
 	//TPSカメラ生成
-	std::unique_ptr<TPSCamera> tpsCamera = std::make_unique<TPSCamera>();
-	GameContext().Register<TPSCamera>(tpsCamera.get());
+	m_tpsCamera = std::make_unique<TPSCamera>();
+	m_tpsCamera;
+	GameContext().Register<TPSCamera>(m_tpsCamera);
 
-	//プレイヤー生成
-	std::unique_ptr<Player> player = std::make_unique<Player>();
-	GameContext().Register<Player>(player.get());
-
-	//オブジェクトマネジャーに追加
-	m_gameObjectManager->Add(std::move(tpsCamera));
-	m_gameObjectManager->Add(std::move(player));
+	
 
 }
 
@@ -99,9 +97,11 @@ void PlayState::Update(const DX::StepTimer& timer)
 		gameStateManager->PushState(stateID::PAUSE_STATE);
 	}
 
-	//オブジェクトマネジャー更新
-	m_gameObjectManager->Update(timer);
 	m_stageManager->Update(timer);
+	m_tpsCamera->Update(timer);
+	m_playerManager->Update(timer);
+
+
 }
 
 /// <summary>
@@ -110,10 +110,10 @@ void PlayState::Update(const DX::StepTimer& timer)
 /// <param name="timer"></param>
 void PlayState::Render(const DX::StepTimer& timer)
 {
-	//オブジェクトマネジャー描画
-	m_gameObjectManager->Render(timer);
-	m_stageManager->Render(timer);
 	
+	m_stageManager->Render(timer);
+	m_playerManager->Render(timer);
+	m_tpsCamera->Render(timer);
 }
 
 /// <summary>

@@ -169,6 +169,9 @@
     <ClInclude Include="Sources\Game\Stage\Scaffold.h">
       <Filter>Game\Stage</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Game\Player\PlayerManager.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -255,6 +258,9 @@
     </ClCompile>
     <ClCompile Include="Sources\Game\Stage\Scaffold.cpp">
       <Filter>Game\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\PlayerManager.cpp">
+      <Filter>Game\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
