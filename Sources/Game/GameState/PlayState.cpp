@@ -78,6 +78,7 @@ void PlayState::Initialize()
 	GameContext().Register<TPSCamera>(m_tpsCamera);
 
 	
+	m_collisionManager->AllowCollision("Player", "Ground");
 
 }
 
@@ -87,7 +88,6 @@ void PlayState::Initialize()
 /// <param name="elapsedTime">タイマー</param>
 void PlayState::Update(const DX::StepTimer& timer)
 {
-	timer;
 	//ポーズ画面
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 	if (keyState.IsKeyDown(DirectX::Keyboard::P))
@@ -100,8 +100,8 @@ void PlayState::Update(const DX::StepTimer& timer)
 	m_stageManager->Update(timer);
 	m_tpsCamera->Update(timer);
 	m_playerManager->Update(timer);
-
-
+	m_collisionManager->DetectCollision();
+	
 }
 
 /// <summary>
