@@ -3,7 +3,6 @@
 // Summary	: プレイヤーマネジャー
 // Author		: Kyoya Sakamoto
 //======================================================
-#include <pch.h>
 
 #include "Player.h"
 #include "Standing.h"

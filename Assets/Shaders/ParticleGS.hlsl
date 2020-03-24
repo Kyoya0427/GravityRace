@@ -13,8 +13,7 @@ static const float4 offset_array[vnum] =
 [maxvertexcount(vnum)]
 void main(
 	point PS_INPUT input[1],
-	inout TriangleStream< PS_INPUT > output
-)
+	inout TriangleStream< PS_INPUT > output)
 {
 	for (uint i = 0; i < vnum; i++)
 	{

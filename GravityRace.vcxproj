@@ -205,6 +205,8 @@
     <ClInclude Include="Sources\Game\Object\GameObject.h" />
     <ClInclude Include="Sources\Game\Object\GameObjectManager.h" />
     <ClInclude Include="Sources\Game\Player\Agravity.h" />
+    <ClInclude Include="Sources\Game\Player\ConcentratedLineShader.h" />
+    <ClInclude Include="Sources\Game\Player\EnergyShader.h" />
     <ClInclude Include="Sources\Game\Player\Floating.h" />
     <ClInclude Include="Sources\Game\Player\IPlayer.h" />
     <ClInclude Include="Sources\Game\Player\Jumping.h" />
@@ -219,6 +221,7 @@
     <ClInclude Include="Sources\Game\Stage\StageManager.h" />
     <ClInclude Include="Sources\Game\UI\Blink.h" />
     <ClInclude Include="Sources\pch\pch.h" />
+    <ClInclude Include="Sources\Utils\BinaryFile.h" />
     <ClInclude Include="Sources\Utils\GameContext.h" />
     <ClInclude Include="Sources\Utils\Projection.h" />
     <ClInclude Include="Sources\Utils\ServiceLocator.h" />
@@ -242,6 +245,8 @@
     <ClCompile Include="Sources\Game\Object\GameObject.cpp" />
     <ClCompile Include="Sources\Game\Object\GameObjectManager.cpp" />
     <ClCompile Include="Sources\Game\Player\Agravity.cpp" />
+    <ClCompile Include="Sources\Game\Player\ConcentratedLineShader.cpp" />
+    <ClCompile Include="Sources\Game\Player\EnergyShader.cpp" />
     <ClCompile Include="Sources\Game\Player\Floating.cpp" />
     <ClCompile Include="Sources\Game\Player\Jumping.cpp" />
     <ClCompile Include="Sources\Game\Player\Player.cpp" />
@@ -258,6 +263,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Sources\Utils\BinaryFile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="directx.ico" />
@@ -275,6 +281,27 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Assets\Shaders\ConcentratedLine.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Assets\Shaders\Energy.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Assets\Shaders\ParticleGS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Geometry</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Geometry</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Assets\Shaders\ParticleVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\Particle.hlsli" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -53,6 +53,12 @@
     <Filter Include="Game\Player\State">
       <UniqueIdentifier>{d1a621e4-b747-48aa-9ee7-d3de263fec6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\Shader">
+      <UniqueIdentifier>{1be13228-b107-4086-b1b2-419b5261d7d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Player\PlayerShader">
+      <UniqueIdentifier>{4019d6cc-6ae1-4b00-abdb-dd048c97c75e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\pch\pch.h">
@@ -172,6 +178,15 @@
     <ClInclude Include="Sources\Game\Player\PlayerManager.h">
       <Filter>Game\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Utils\BinaryFile.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\ConcentratedLineShader.h">
+      <Filter>Game\Player\PlayerShader</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\EnergyShader.h">
+      <Filter>Game\Player\PlayerShader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -262,6 +277,15 @@
     <ClCompile Include="Sources\Game\Player\PlayerManager.cpp">
       <Filter>Game\Player</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\Utils\BinaryFile.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\ConcentratedLineShader.cpp">
+      <Filter>Game\Player\PlayerShader</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\EnergyShader.cpp">
+      <Filter>Game\Player\PlayerShader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="directx.ico">
@@ -295,5 +319,24 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Assets\Shaders\ParticleGS.hlsl">
+      <Filter>Assets\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Assets\Shaders\ParticleVS.hlsl">
+      <Filter>Assets\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Assets\Shaders\concentratedLine.hlsl">
+      <Filter>Assets\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Assets\Shaders\Energy.hlsl">
+      <Filter>Assets\Shader</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\Particle.hlsli">
+      <Filter>Assets\Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>
