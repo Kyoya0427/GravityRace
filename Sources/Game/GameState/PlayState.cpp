@@ -66,16 +66,15 @@ void PlayState::Initialize()
 	m_stageManager = std::make_unique<StageManager>();
 	m_stageManager->Initialize();
 
-	//プレイヤーマネージャー生成
-	m_playerManager = std::make_unique<PlayerManager>();
-	m_playerManager->Initialize();
-	GameContext().Register<Player>(m_playerManager->GetPlayer());
-	
-
 	//TPSカメラ生成
 	m_tpsCamera = std::make_unique<TPSCamera>();
 	m_tpsCamera;
 	GameContext().Register<TPSCamera>(m_tpsCamera);
+
+	//プレイヤーマネージャー生成
+	m_playerManager = std::make_unique<PlayerManager>();
+	m_playerManager->Initialize();
+	GameContext().Register<Player>(m_playerManager->GetPlayer());
 
 	
 	m_collisionManager->AllowCollision("Player", "Ground");

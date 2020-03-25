@@ -187,6 +187,12 @@
     <ClInclude Include="Sources\Game\Player\EnergyShader.h">
       <Filter>Game\Player\PlayerShader</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Game\Player\EnergyEffectManager.h">
+      <Filter>Game\Player\PlayerShader</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Game\Player\Myeffect.h">
+      <Filter>Game\Player\PlayerShader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -284,6 +290,12 @@
       <Filter>Game\Player\PlayerShader</Filter>
     </ClCompile>
     <ClCompile Include="Sources\Game\Player\EnergyShader.cpp">
+      <Filter>Game\Player\PlayerShader</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\EnergyEffectManager.cpp">
+      <Filter>Game\Player\PlayerShader</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game\Player\MyEffect.cpp">
       <Filter>Game\Player\PlayerShader</Filter>
     </ClCompile>
   </ItemGroup>

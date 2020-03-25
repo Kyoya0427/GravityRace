@@ -206,10 +206,12 @@
     <ClInclude Include="Sources\Game\Object\GameObjectManager.h" />
     <ClInclude Include="Sources\Game\Player\Agravity.h" />
     <ClInclude Include="Sources\Game\Player\ConcentratedLineShader.h" />
+    <ClInclude Include="Sources\Game\Player\EnergyEffectManager.h" />
     <ClInclude Include="Sources\Game\Player\EnergyShader.h" />
     <ClInclude Include="Sources\Game\Player\Floating.h" />
     <ClInclude Include="Sources\Game\Player\IPlayer.h" />
     <ClInclude Include="Sources\Game\Player\Jumping.h" />
+    <ClInclude Include="Sources\Game\Player\Myeffect.h" />
     <ClInclude Include="Sources\Game\Player\Player.h" />
     <ClInclude Include="Sources\Game\Player\PlayerManager.h" />
     <ClInclude Include="Sources\Game\Player\Running.h" />
@@ -246,9 +248,11 @@
     <ClCompile Include="Sources\Game\Object\GameObjectManager.cpp" />
     <ClCompile Include="Sources\Game\Player\Agravity.cpp" />
     <ClCompile Include="Sources\Game\Player\ConcentratedLineShader.cpp" />
+    <ClCompile Include="Sources\Game\Player\EnergyEffectManager.cpp" />
     <ClCompile Include="Sources\Game\Player\EnergyShader.cpp" />
     <ClCompile Include="Sources\Game\Player\Floating.cpp" />
     <ClCompile Include="Sources\Game\Player\Jumping.cpp" />
+    <ClCompile Include="Sources\Game\Player\MyEffect.cpp" />
     <ClCompile Include="Sources\Game\Player\Player.cpp" />
     <ClCompile Include="Sources\Game\Player\PlayerManager.cpp" />
     <ClCompile Include="Sources\Game\Player\Running.cpp" />

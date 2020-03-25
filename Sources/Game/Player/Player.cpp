@@ -12,7 +12,7 @@
 #include "Agravity.h"
 
 #include <Effects.h>
-
+#include <Game\Camera\TPSCamera.h>
 
 
 #include <Utils\GameContext.h>

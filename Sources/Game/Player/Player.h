@@ -14,7 +14,7 @@
 #include <CommonStates.h>
 #include <GeometricPrimitive.h>
 
-#include <Game\Camera\TPSCamera.h>
+
 
 #include <Game\Object\GameObject.h>
 #include <Game\Collider\MoveBoxCollider.h>
