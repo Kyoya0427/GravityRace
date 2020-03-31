@@ -81,13 +81,14 @@ void Player::Update(const DX::StepTimer& timer)
 {
 	TPSCamera* tpsCamera = GameContext().Get<TPSCamera>();
 
+	float elapsedTime = float(timer.GetElapsedSeconds());
+	
 	m_position += m_velocity;
-
 	//èdóÕ
 	m_gravity = -0.08;
 	if (m_isGravityState == GravityState::AGRAVITY)
 	{
-		//m_energy -= elapsedTime;
+		m_energy -= elapsedTime;
 		//SetVelocity(GetVelosity() + (m_raycastHit.normNear * m_gravity));
 	}
 	else if(m_isGravityState == GravityState::GRAVITATION)

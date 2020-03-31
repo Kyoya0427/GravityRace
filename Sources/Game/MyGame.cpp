@@ -8,7 +8,11 @@
 #include <Keyboard.h>
 #include <Mouse.h>
 
+#include <Framework\DeviceResources.h>
+
 #include <Utils\GameContext.h>
+#include <Utils\DebugFont.h>
+
 #include <Game\GameState\GameStateManager.h>
 #include <Game\GameState\TitleState.h>
 #include <Game\GameState\PlayState.h>
@@ -28,6 +32,8 @@ MyGame::MyGame()
 /// </summary>
 MyGame::~MyGame()
 {
+	DebugFont* debugFont = DebugFont::GetInstance();
+	debugFont->reset();
 }
 
 /// <summary>
@@ -47,6 +53,9 @@ void MyGame::Initialize()
 	m_stateManager->SetStartState(StateID::TITLE_STATE);
 	//コンテキストに登録
 	GameContext().Register<GameStateManager>(m_stateManager);
+
+	DebugFont* debugFont = DebugFont::GetInstance();
+	debugFont->create(GameContext().Get<DX::DeviceResources>()->GetD3DDevice(), GameContext().Get<DX::DeviceResources>()->GetD3DDeviceContext());
 
 }
 

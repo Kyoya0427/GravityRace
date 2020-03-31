@@ -206,12 +206,10 @@
     <ClInclude Include="Sources\Game\Object\GameObjectManager.h" />
     <ClInclude Include="Sources\Game\Player\Agravity.h" />
     <ClInclude Include="Sources\Game\Player\ConcentratedLineShader.h" />
-    <ClInclude Include="Sources\Game\Player\EnergyEffectManager.h" />
     <ClInclude Include="Sources\Game\Player\EnergyShader.h" />
     <ClInclude Include="Sources\Game\Player\Floating.h" />
     <ClInclude Include="Sources\Game\Player\IPlayer.h" />
     <ClInclude Include="Sources\Game\Player\Jumping.h" />
-    <ClInclude Include="Sources\Game\Player\Myeffect.h" />
     <ClInclude Include="Sources\Game\Player\Player.h" />
     <ClInclude Include="Sources\Game\Player\PlayerManager.h" />
     <ClInclude Include="Sources\Game\Player\Running.h" />
@@ -224,6 +222,7 @@
     <ClInclude Include="Sources\Game\UI\Blink.h" />
     <ClInclude Include="Sources\pch\pch.h" />
     <ClInclude Include="Sources\Utils\BinaryFile.h" />
+    <ClInclude Include="Sources\Utils\DebugFont.h" />
     <ClInclude Include="Sources\Utils\GameContext.h" />
     <ClInclude Include="Sources\Utils\Projection.h" />
     <ClInclude Include="Sources\Utils\ServiceLocator.h" />
@@ -248,11 +247,9 @@
     <ClCompile Include="Sources\Game\Object\GameObjectManager.cpp" />
     <ClCompile Include="Sources\Game\Player\Agravity.cpp" />
     <ClCompile Include="Sources\Game\Player\ConcentratedLineShader.cpp" />
-    <ClCompile Include="Sources\Game\Player\EnergyEffectManager.cpp" />
     <ClCompile Include="Sources\Game\Player\EnergyShader.cpp" />
     <ClCompile Include="Sources\Game\Player\Floating.cpp" />
     <ClCompile Include="Sources\Game\Player\Jumping.cpp" />
-    <ClCompile Include="Sources\Game\Player\MyEffect.cpp" />
     <ClCompile Include="Sources\Game\Player\Player.cpp" />
     <ClCompile Include="Sources\Game\Player\PlayerManager.cpp" />
     <ClCompile Include="Sources\Game\Player\Running.cpp" />
@@ -268,6 +265,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Sources\Utils\BinaryFile.cpp" />
+    <ClCompile Include="Sources\Utils\DebugFont.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="directx.ico" />
@@ -294,14 +292,6 @@
     <FxCompile Include="Assets\Shaders\Energy.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
-    </FxCompile>
-    <FxCompile Include="Assets\Shaders\ParticleGS.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Geometry</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Geometry</ShaderType>
-    </FxCompile>
-    <FxCompile Include="Assets\Shaders\ParticleVS.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
